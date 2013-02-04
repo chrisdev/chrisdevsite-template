@@ -1,27 +1,29 @@
 =======================
-foundation-project-zero
+Chrisdev Site template
 =======================
 
-A Django starter project based on `Zurb Foundation <http://foundation.zurb.com>`_
+A Django starter project to be used for ChrisDev sites
 
-To Use ::
+Installation of Dependencies
+============================
 
-    $ django-admin.py startproject [your_project_name] --template=https://github.com/chrisdev/foundation-project-zero/zipball/master
+First, make sure you are using virtualenv/virtualenvwrapper::
 
-This project template provides :
+    $ mkvirtualenv --distribute myproject-env
 
- * apps folder for internal apps
- * initial data (for handling ``sites.Site`` model)
- * project requirements files for use with pip_
- * a home for your site static files
- * basic templates designed to work with the foundation theme
+You will also need to ensure that the virtualenv has the project directory
+added to the path. Adding the project directory will allow `django-admin.py` to be able to change settings using the `--settings` flag.
+
+Use `add2virtualenv` which will take care of adding the project path to the `site-directory` for you::
+
+    $ add2virtualenv /path/to/myproject
 
 
-Apps included:
+To create the project::
 
- * django-debug-toolbar
- * django_compressor
- * pinax-utils
- * pinax-theme-foundation
+    $ django-admin.py startproject [myproject] --template=https://github.com/chrisdev/chrisdevsite-template/zipball/master
 
-.. _pip: http://www.pip-installer.org/
+
+
+
+
