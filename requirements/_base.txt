@@ -1,5 +1,4 @@
-
-https://www.djangoproject.com/download/1.5c1/tarball/
+Django==1.4.3
 bpython==0.12
 django-braces==0.2.1
 django-model-utils==1.1.0
@@ -9,5 +8,5 @@ psycopg2==2.4.6
 django-extensions==1.0.3
 python-dateutil==2.1
 django-filer==0.9.3
-eaasy-thumbnails==1.2
-
+easy-thumbnails==1.2
+PIL==1.1.7

@@ -27,7 +27,7 @@ To create the project::
 
 Then install the requirements::
 
-    pip install -r requirements/local.py
+    pip install -r requirements/local.txt
 
 
 
@@ -38,7 +38,7 @@ The starter project provides for multiple settings and requirement files. Becaus
 generally no longer use `manage.py` to run commands such as `runserver`, `syncdb` etc.
 For example we can start the development server as follows ::
 
-    django-admin.py runserver  --settings=civ_monitor.settings.local
+    django-admin.py runserver  --settings=[myproject].settings.local
 
 The `local` module is designed for local development::
 
@@ -107,27 +107,27 @@ The `local` module is designed for local development::
     warnings.simplefilter('error', DeprecationWarning)
 
 
-This turns on the DEBUG  settings, set the default datbase to sqlite3 (default.db)
-adds `debug_toolbar` to INSTALLED_APPS anad adds the debug-toolbar middleware.
+This turns on the DEBUG  settings, set the default database to sqlite3 (default.db)
+adds `debug_toolbar` to INSTALLED_APPS and adds the debug-toolbar middleware.
 
 For a more custom local environment you should create a new "dev" settings
 module. As an example, the template project provides `dev_chris.py` which
 provides for postgresql default database. To run the development server using these settings::
 
-    django-admin.py runserver  --settings=civ_monitor.settings.dev_chris
+    django-admin.py runserver  --settings=[myproject].settings.dev_chris
 
 
 To cut down the amount of typing you can store your `--settings` in an environmental
 variable called DJANGO_SETTINGS_MODULE ::
 
-    export DJANGO_SETTINGS_MODULE=civ_monitor.settings.dev_chris
+    export DJANGO_SETTINGS_MODULE=[myproject].settings.dev_chris
     django-admin.py runserver
 
 
 
 Requirements
 =============
-The new project template also utilizes multiple requirements files::
+The new project template also utilises multiple requirements files::
 
      _base.txt
      local.txt
@@ -137,7 +137,7 @@ The new project template also utilizes multiple requirements files::
 `_base.txt` contains the core requirements for the project while `local.txt`
 will install the django-debug-toolbar etc.::
 
-    pip install -r requirements/local.py
+    pip install -r requirements/local.txt
 
 
 
