@@ -116,8 +116,9 @@ provides for postgresql default database. To run the development server using th
 
     django-admin.py runserver  --settings=civ_monitor.settings.dev_chris
 
- To cut down the amount of typing you can store your `--settings` in an environmental
- variable called DJANGO_SETTINGS_MODULE ::
+
+To cut down the amount of typing you can store your `--settings` in an environmental
+variable called DJANGO_SETTINGS_MODULE ::
 
     export DJANGO_SETTINGS_MODULE=civ_monitor.settings.dev_chris
     django-admin.py runserver
