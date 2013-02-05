@@ -59,5 +59,5 @@ MIDDLEWARE_CLASSES += (
 )
 ########## END TOOLBAR CONFIGURATION
 
-import warnings
-warnings.simplefilter('error', DeprecationWarning)
+#import warnings
+#warnings.simplefilter('error', DeprecationWarning)
