@@ -96,9 +96,10 @@ MIDDLEWARE_CLASSES = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
 ]
 
-ROOT_URLCONF = "civ_monitor.urls"
+ROOT_URLCONF = "{{ project_name }}.urls"
 
 TEMPLATE_DIRS = [
     join(DJANGO_ROOT, "templates"),
@@ -126,6 +127,9 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.humanize",
     'django.contrib.staticfiles',
+    "django.contrib.flatpages",
+    "filer",
+    "easy_thumbnails",
 ]
 
 THIRD_PARTY_APPS = [
@@ -138,7 +142,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'utils',
-    'publications',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

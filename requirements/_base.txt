@@ -8,3 +8,6 @@ pinax-theme-foundation
 psycopg2==2.4.6
 django-extensions==1.0.3
 python-dateutil==2.1
+django-filer==0.9.3
+eaasy-thumbnails==1.2
+
