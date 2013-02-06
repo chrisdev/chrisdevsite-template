@@ -177,7 +177,7 @@ MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
 ######## Haystack Search ############
 
 
-HAYSTACK_SITECONF = 'testing.search_sites'
+HAYSTACK_SITECONF = '{{ project_name }}.search_sites'
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 

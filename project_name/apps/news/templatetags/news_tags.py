@@ -48,11 +48,11 @@ def latest_news_articles(parser, token):
 
     Syntax::
 
-        {% latest_news_articles [limit] as [var_name] %}
+         latest_news_articles [limit] as [var_name] 
 
     Example usage::
 
-        {% latest_news_articles 10 as latest_articles_list %}
+         latest_news_articles 10 as latest_articles_list 
     """
     #import ipdb; ipdb.set_trace()
     bits = token.contents.split()
@@ -76,11 +76,11 @@ def get_news_sections(parser, token):
 
     Syntax::
 
-        {% get_news_sections as [var_name] %}
+         get_news_sections as [var_name]
 
     Example usage::
 
-        {% get_news_sections as section_list %}
+         get_news_sections as section_list
     """
     bits = token.split.contents()
     return NewsSectionsNode(bits[-1])
@@ -107,7 +107,7 @@ class LatestSectionArticlesNode(template.Node):
 @register.tag
 def latest_section_articles(parser, token):
     """
-    {% latest_section_articles "articles" as latest_section_articles %}
+     latest_section_articles "articles" as latest_section_articles 
     """
     bits = token.split_contents()
     return LatestSectionArticlesNode(bits[1], bits[-1])

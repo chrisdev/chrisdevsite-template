@@ -6,7 +6,7 @@ register = template.Library()
 @register.tag('get_photos')
 def do_get_photos(parser, token):
     """
-    {% get_photos gallery-name 5 as slides %}
+     get_photos gallery-name 5 as slides 
 
     """
 

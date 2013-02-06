@@ -43,11 +43,11 @@ def get_latest_posts(parser,token):
 
     Syntax::
 
-        {% get_latest_posts [limit] as [var_name] %}
+        get_latest_posts [limit] as [var_name]
 
     Example usage::
 
-        {% get_latest_posts 10 as latest_post_list %}
+        get_latest_posts 10 as latest_post_list
     """
     try:
         tag_name, arg = token.contents.split(None, 1)
@@ -75,11 +75,10 @@ def get_blog_categories(parser, token):
 
     Syntax::
 
-        {% get_blog_categories as [var_name] %}
-
+        get_blog_categories as [var_name] 
     Example usage::
 
-        {% get_blog_categories as category_list %}
+        get_blog_categories as category_list
     """
     try:
         tag_name, arg = token.contents.split(None, 1)
@@ -99,7 +98,7 @@ def get_links(value):
 
     Template Syntax::
 
-        {{ post.body|markdown:"safe"|get_links }}
+         post.body|markdown:"safe"|get_links 
 
     """
     try:

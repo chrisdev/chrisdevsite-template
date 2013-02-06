@@ -154,7 +154,7 @@ class ArticleImage(models.Model):
 
     def __unicode__(self):
         if self.pk is not None:
-            return "{{ %d }}" % self.pk
+            return "[ %d ]" % self.pk
         else:
             return "deleted image"
 

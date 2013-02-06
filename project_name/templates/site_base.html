@@ -23,10 +23,10 @@
 {% endblock %}
 
 {% block extra_script %}
-    <script type="text/javascript" src="{{STATIC_URL}}js/site_js.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}js/klass.min.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}js/code.photoswipe-3.0.4.min.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}js/chrisdev.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/site_js.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/klass.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/code.photoswipe-3.0.4.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/chrisdev.js"></script>
 {% endblock %}
 
 {% block body_base %}
@@ -62,29 +62,7 @@
             });
     });
     </script>
-
-    <script type="text/javascript">
-    		(function(window, PhotoSwipe){
-    			document.addEventListener('DOMContentLoaded', function(){
-    				var
-    					options = {},
-    					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-    			}, false);
-    		}(window, window.Code.PhotoSwipe));
-    </script>
-
-    <script type="text/javascript">
-    $(window).load(function() {
-         $('#featured').orbit({
-              captions: true,
-              bullets : true,
-              directionalNav: false,
-              animation: 'fade',
-              advanceSpeed: 5000,
-         });
-    });
-    </script>
-
+    
   {% block extra_body %}{% endblock %}
 
 {% endblock %}
