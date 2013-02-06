@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% block head_title %}{{flatpage.title}}{% endblock %}
+
+{% block article %}
+	<div class="flatpage">
+		 <h4>{{flatpage.title}}</h4>
+	   {{flatpage.content|safe}}
+	</div>
+{% endblock %}
+
+{% block aside %}
+	 {% include "_sidebar.html" %}
+{% endblock %}

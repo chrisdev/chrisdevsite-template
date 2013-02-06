@@ -1,0 +1,18 @@
+/* TEAM */
+
+Lead Developer:Christopher Clarke
+Contact: cclarke [at] chrisdev.com
+Twitter: @realchrisdev
+From:Tunapuna, Trinidad and Tobago
+
+Web Design and Graphics:Lendl Smith
+Contact: lendl.smith [at] chrisdev.com
+Twitter: @lendlsmith
+From:Tunapuna, Trinidad and Tobago
+
+
+/* SITE */
+Language:English
+Doctype: HTML5
+Components: Zurb Foundation, jQuery, Django, TypeKit Museo Sans/Myriad Pro
+Software: Sublime Text 2, Photoshop Elements, Pixelmator

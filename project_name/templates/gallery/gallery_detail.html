@@ -1,0 +1,40 @@
+{% extends "site_base.html" %}
+{% load thumbnail %}
+
+{% block head_title %}{{block.super}}{{object.name }}{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+<h3 style="text-align: center;">{{ object.name }}</h3>
+
+<div class="image-gallery box clearfix">
+
+	   {% for photo in object.all_files.all %}
+
+					<div class="three mobile-two columns" style="float:left; margin-bottom: 12px;">
+							<div class="img-wrapper">
+								<ul id="Gallery" class="gallery">
+						        <a href="{{ photo.url }}"><img src="{% thumbnail photo 300x250 crop %}" alt="{{ photo.default_caption }}"/> 
+								</a>
+								</ul>
+						    </div>
+					{% comment %}
+						{% if photo.name %}
+				           <h6>{{ photo.name}}</h6>
+				        {% endif %}
+				    {% endcomment %}
+					</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

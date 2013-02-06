@@ -1,0 +1,163 @@
+a.flyout-toggle {
+	padding: 0px;
+}
+
+#gov_itc_logo {
+	height: 31px;
+}
+
+#gov_itc_logo img {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#gov_itc_logo a {
+	background-image: none;
+	padding: 0;
+	margin: 0;
+}
+
+.attached {
+	background-color: #646464;
+	border-color: #08C;
+}
+
+.attached li {
+	color: #fff;
+	font-weight: 500;
+}
+
+.social li {
+	list-style: none;
+	padding-top: 8px;
+	text-align: right;	
+}
+
+.social li a:last-of-type {
+	margin-top: -2px;
+	margin-bottom: -2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 22px;
+}
+
+.fc-webicon.medium {
+	height: 25px;
+	width: 25px;
+}
+
+.attached ul.nav-bar {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#menu .nav-bar > li.has-flyout > a:first-child {
+	padding-right: 25px;
+	padding-left: 10px;
+}
+
+#menu .nav-bar > li.has-flyout > a:first-child:after {
+	right: 12px;
+	top: 12px;
+	border-width: 3px;
+}
+
+#menu .nav-bar li ul li a {
+	padding: 5px 10px 2px;
+	border: 0px;
+	box-shadow: none;
+	color: #08C;
+	font-size: 13px;
+}
+
+#menu .nav-bar li ul li a:hover {
+	background: none;
+}
+
+#menu .nav-bar > li > a:first-child {
+	font-size: 13px;
+	font-weight: 500;
+}
+
+#menu .nav-bar > li > a:hover {
+	background: #fff;
+	color: #08C;
+	border-radius: 2px;
+}
+
+#menu .nav-bar > li.has-flyout > a.flyout-toggle {
+	padding: 0;
+}
+
+#menu .flyout {
+	top: 25px;
+	box-shadow: none;
+}
+
+#menu .row:first-of-type {
+	margin-bottom: 15px;
+}
+
+#menu {
+	padding: 0px;
+	background: #000;
+}
+
+#menu .nav-bar {
+	margin: 0px;
+	float: right;
+	height: 29px;
+	background-color: #646464;
+	padding: 2px;
+	width: 940px;
+}
+
+#menu .nav-bar li {
+	border: 0;
+	margin-bottom: 10px;
+	line-height: 25px;
+	box-shadow: none;
+}
+
+#menu .nav-bar a h6, #menu .nav-bar a p {
+	color: #08C;
+}
+
+#menu .nav-bar a:hover h6 {
+	color: #08C;
+}
+
+/* Use this class if a link gets an icon when it shouldn't. */
+body a.noicon {
+  background:transparent none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+/* Make sure the icons are not cut */
+a[href^="http:"], a[href^="https:"],
+a[href^="http:"]:visited, a[href^="https:"]:visited,
+a[href^="mailto:"], a[href$=".pdf"], a[href$=".doc"], a[href$=".xls"],
+a[href$=".rss"], a[href$=".rdf"], a[href^="aim:"] {
+  padding:2px 22px 2px 0;
+  margin:-2px 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* External links */
+a[href^="http:"]          { background-image: url(../images/icons/external.png); }
+a[href^="https:"]         { background-image: url(../images/icons/lock.png); }
+a[href^="mailto:"]        { background-image: url(../images/icons/email.png); }
+a[href^="http:"]:visited  { background-image: url(../images/icons/visited.png); }
+
+/* Files */
+a[href$=".pdf"]   { background-image: url(../images/icons/pdf.png); }
+a[href$=".doc"]   { background-image: url(../images/icons/doc.png); }
+a[href$=".xls"]   { background-image: url(../images/icons/xls.png); }
+
+/* Misc */
+a[href$=".rss"],
+a[href$=".rdf"]   { background-image: url(../images/icons/feed.png); }
+a[href^="aim:"]   { background-image: url(../images/icons/im.png); }
+

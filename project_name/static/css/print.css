@@ -1,0 +1,22 @@
+body {margin:0; padding:0; line-height: 1.4em; word-spacing:1px; letter-spacing:0.2px; font: 13px Arial, Helvetica,"Lucida Grande", serif; color: #000;}
+
+/*Header*/
+h2, h3, h4, h5, h6 {color:#000; font-size:25px;}
+
+/* Links */
+a:link, a:visited {background: transparent; color:#333; text-decoration:none; font-size: 10px;
+}
+a:link[href^="http://"]:after, a[href^="http://"]:visited:after {content: " (" attr(href) ") "; font-size: 10px;}
+a[href^="http://"] {color:#000;} 
+a {
+	display: none;
+}
+/*Image*/
+img, img a, .more-link a {border:none;}
+
+/*Remove Element*/
+#header, #aside, #abstract, #menu, #slider, #featured, .contentslider h5, #sidebar, .print, #footer, #contentslider, #caption, #news_sidebar, ul.breadcrumbs {display:none;} 
+
+#content {
+	border: 0px;
+}

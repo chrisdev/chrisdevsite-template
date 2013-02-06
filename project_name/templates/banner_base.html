@@ -1,0 +1,55 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load photo_tags %}
+{% load news_tags %}
+{% load generic_flatblocks %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block content %}
+<div id="homepage">
+    	<div class="nine columns">
+    			<div class="row">
+    				<div id="slider" class="twelve columns hide-for-small">
+    						{% get_photos Slider 12 as photos %}
+    					    <div id="featured">
+    					        {% for photo in photos %}
+    					            <img src="{% thumbnail photo 1200x450 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
+    					        {% endfor %}
+    					        {% for photo in photos %}
+    					        	<span class="orbit-caption" id="slide-{{ photo.pk }}">{{ photo.default_caption }}</span>
+    					        {% endfor %}
+    					    </div>
+    			    </div>
+    			</div>
+
+    			<div class="row">
+	    			<div class="twelve columns">
+	    					{% gblock "welcome" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+	    			</div>
+	    		</div>
+
+       			<div class="row">
+    				<div class="six columns">
+    						{% gblock "block1" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+    				</div>
+    				<div class="six columns">
+    						{% gblock "block2" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+    				</div>
+    			</div>
+
+			    <div class="row">
+			    	<div class="six columns">
+			    			{% gblock "block3" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+			    	</div>
+			    	<div class="six columns">
+			    			{% gblock "block4" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+			    	</div>
+			    </div>
+		</div>
+		
+		<div class="three columns">
+			{% include "_sidebar.html" %}
+		</div>
+</div>
+{% endblock %}

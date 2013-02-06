@@ -1,0 +1,39 @@
+<div id="header" class="row hide-for-small">
+		<div id="logo" class="two columns">
+			<a href="/"><img src="{{STATIC_URL}}images/logo.png" title="Home" alt="Home"></a>
+		</div>
+		<div class="ten columns">
+				<div class="social four columns offset-by-eight">
+				<li>
+				<a class="fc-webicon facebook medium" href="#" title="facebook" target="_blank">Facebook</a>
+				<a class="fc-webicon twitter medium" href="#" title="twitter" target="_blank">Twitter</a>
+				<a class="fc-webicon vimeo medium" href="#" title="vimeo" target="_blank">Vimeo</a>
+				<a class="fc-webicon youtube medium" href="#" title="youtube" target="_blank">Youtube</a>
+				<a class="fc-webicon rss medium" href="/news/feeds/rss/" title="rss feed" target="_blank">RSS Feed</a>
+				</li>
+
+		 </div>
+
+		</div>
+
+		<div id="menu" class="menu-bar twelve columns">
+			{% include "_navbar.html" %}
+		</div>
+
+	</div>
+
+	<div class="attached show-for-small">
+    	<div class="row">
+			<li class="name mobile-four">
+				<a href="/"><span class="show-for-small glyph general">m</span>{{SITE_NAME}}</a><a href="#"></a>
+			</li>
+			<ul class="nav-bar menu mobile-four">
+				{% block topbar %}
+					{% block nav %}
+						{% include "_navbar.html" %}
+					{% endblock %}
+					{% block account_bar %}{% endblock %}
+				{% endblock %}
+			</ul>
+		</div>
+	</div>

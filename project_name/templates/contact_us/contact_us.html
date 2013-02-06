@@ -1,0 +1,12 @@
+{% extends "contact_us/root.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Contact Us" %}{% endblock %}
+
+{% block article_contact %}
+	    <h4>Contact Us</h4>
+	    <p>Use this contact form to drop a line if you have inquires.</p>
+	     
+	    {% crispy form form.helper %}      
+{% endblock %}

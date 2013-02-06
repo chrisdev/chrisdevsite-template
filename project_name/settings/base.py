@@ -128,6 +128,7 @@ DJANGO_APPS = [
     "django.contrib.humanize",
     'django.contrib.staticfiles',
     "django.contrib.flatpages",
+    "django.contrib.markup",
     "filer",
     "easy_thumbnails",
 ]
@@ -137,6 +138,22 @@ THIRD_PARTY_APPS = [
     'south',
     "pinax_theme_foundation",
     "django_extensions",
+    "frontendadmin",
+    "taggit",
+    "contact_form",
+    "django_generic_flatblocks",
+    "django_generic_flatblocks.contrib.gblocks",
+    "floppyforms",
+    "crispy_forms",
+    "faq",
+    "form_utils",
+    "flatpages_x",
+    "frontendadmin",
+    'haystack',
+    "markitup",
+    "photos",
+    "news",
+    "contact_us",
 
 ]
 
@@ -150,6 +167,24 @@ FIXTURE_DIRS = [
     join(DJANGO_ROOT, "fixtures"),
 ]
 
+
+##### Markit up #########
+MARKITUP_SET = 'markitup/sets/markdown'
+MARKITUP_SKIN = 'markitup/skins/markitup'
+MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
+############################
+
+######## Haystack Search ############
+
+
+HAYSTACK_SITECONF = 'testing.search_sites'
+
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+
+HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT,'whoosh_index')
+
+
+#####################################
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
