@@ -24,7 +24,9 @@ urlpatterns = patterns("",
     url(r'^faq/$', faq_list, {"template_name":"faq/faq_list.html"},name='faq'),
 )
 
-#if settings.SERVE_MEDIA:
-#    urlpatterns += patterns("",
-#        url(r"", include("staticfiles.urls")),
-#    )+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+   )
