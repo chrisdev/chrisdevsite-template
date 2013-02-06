@@ -1,0 +1,30 @@
+/* Buttons */
+
+a.frontendadmin {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+  padding-left: 20px;
+}
+
+a.frontendadmin_edit,
+a.frontendadmin_delete,
+a.frontendadmin_add{
+	display: inline-block;
+	background-repeat: no-repeat;
+
+}
+
+a.frontendadmin_edit
+{
+	background-image: url('../images/frontendadmin/page_edit.png');
+}
+a.frontendadmin_delete
+{
+	background-image: url('../images/frontendadmin/delete.png');
+}
+
+a.frontendadmin_add
+{
+	background-image: url('../images/frontendadmin/add.png');
+}

@@ -141,7 +141,6 @@ THIRD_PARTY_APPS = [
     "taggit",
     "django_generic_flatblocks",
     "django_generic_flatblocks.contrib.gblocks",
-    "crispy_forms",
     "floppyforms",
     "faq",
     "form_utils",
@@ -169,16 +168,7 @@ MARKITUP_SKIN = 'markitup/skins/markitup'
 MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
 ############################
 
-########## FLATPGE X #######
-FLATPAGES_X_TEMPLATE_CHOICES = [
-        ('flatpages/default.html','Text Only',),
-        ('flatpages/about.html','About',),
-        ('flatpages/bio.html','Bio',),
-]
 
-FLATPAGES_X_PARSER=["utils.markdown_parser.parse",{}]
-
-###############################
 
 ######## Haystack Search ############
 
@@ -187,7 +177,7 @@ HAYSTACK_SITECONF = '{{ project_name }}.search_sites'
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
-HAYSTACK_WHOOSH_PATH = os.path.join(DJANGO_ROOT,'whoosh_index')
+HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT,'whoosh_index')
 
 
 #####################################

@@ -1,0 +1,18 @@
+{% extends "site_base.html" %}
+
+{% block head_title %}{{flatpage.title}}{% endblock %}
+
+{% block article %}
+	<div class="flatpage">
+		{% include "_addthis.html" %}
+		 <h4>{{flatpage.title}}</h4>
+			 {% for dd in flatpage.revisions.all|slice:"1" %}
+			 	<p class="date"><strong>Last Updated : {{ dd.updated|date:"d F Y" }}</strong></p>
+			 {% endfor %}
+	   {{flatpage.content|safe}}
+	</div>
+{% endblock %}
+
+{% block aside %}
+	{% include "_sidebar.html" %}
+{% endblock %}

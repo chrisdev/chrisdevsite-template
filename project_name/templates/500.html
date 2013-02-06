@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% block content %}
+    <div id="error-page" class="eight columns centered">
+    
+    <h2>Ooops!!!</h2>
+    	<div class="eight columns centered">
+    		<img src="{{STATIC_URL}}images/500.png" >
+    	</div>
+    <h4>
+        There was a problem serving the requested page
+    </h4>
+   
+       <p>We have been notified of the problem and will try our best to make sure it does not happen again</p>
+    </div>
+    
+{% endblock %}
