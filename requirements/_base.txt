@@ -27,5 +27,7 @@ django-admin-tools==0.4.1
 gunicorn==0.14.6
 fabric==1.4.1
 cuisine==0.5.1
-flatpages_x
+django-flatpages-x
 django-markitup==1.0.0
+django-contact-form==0.3.1
+django-crispy-forms==1.1.1

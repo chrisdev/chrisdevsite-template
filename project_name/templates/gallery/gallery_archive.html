@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+{% load thumbnail %}
+
+{% block head_title %}Photo Gallery{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<h3 style="text-align: center;">Photo Gallery</h3>
+
+	<div class="box_wrapper image-gallery">
+	    {% for gallery in object_list %}
+		<div class="three mobile-two columns" style="float: left;">
+			{% for photo in gallery.all_files.all|slice:":1" %}
+				<div class="img-wrapper">
+				<a href="/photos/gallery/{{ gallery.pk}}" title="">
+				<img src="{% thumbnail photo 300x300 crop %}" alt="{{ photo.title }}" style="border-radius:5px;"/></a>
+				</div>
+			  <h6><a href="/photos/gallery/{{ gallery.pk }}">{{ gallery.name }}</a></h6>
+			{% endfor %}
+		</div>
+	    {% endfor %}
+	</div>
+</div>
+
+{% endblock %}
+

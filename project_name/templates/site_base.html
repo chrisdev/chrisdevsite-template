@@ -1,4 +1,6 @@
-% load i18n %}
+{% extends "theme_base.html" %}
+{% load i18n %}
+
 
 {% block extra_head_base %}
      <!-- place google site validation metatag here -->
@@ -12,47 +14,46 @@
     <![endif]-->
     {% block extra_head %}
       <!-- place the typekit stuff here -->
-
     {% endblock %}
+{% endblock %}
 
+{% block account_bar %}{% endblock %}
+{% block topbar_base %}
+	{% include "_topbar.html" %}
 {% endblock %}
 
 {% block extra_script %}
-    <script type="text/javascript" src="{{STATIC_URL}}js/site_js.js"></script>
-{% endblock %}
-
-{% block topbar_base %}
-        {% include "_topbar.html" %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/site_js.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/klass.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/code.photoswipe-3.0.4.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/chrisdev.js"></script>
 {% endblock %}
 
 {% block body_base %}
-                {% block body %}
-                        <div id="content" class="row">
-                                {% block content %}
-                                        <div class="hide-for-small twelve columns">{% block bread_crumbs %}{% endblock %}</div>
+    {% block body %}
+        <div id="content" class="row">
+            {% block content %}
+                  <div class="hide-for-small twelve columns">{% block bread_crumbs %}{% endblock %}</div>
 
-                                        <div id="article" class="nine columns">{% block article %}{% endblock %}</div>
+                  <div id="article" class="nine columns">{% block article %}{% endblock %}</div>
 
-                                        <div id="aside" class="three columns">{% block aside %}{% endblock %}</div>
-                                {% endblock %}
-                   </div>
-                {% endblock %}
+                  <div id="aside" class="three columns">{% block aside %}{% endblock %}</div>
+            {% endblock %}
+       </div>
+    {% endblock %}
 {% endblock %}
 
 {% block footer_base %}
-        <div id="footer">
-        <div class="hide-for-small sitemap row">
-                        {% include "_sitemap.html" %}
-        </div>
-        <footer class="row">
-                {% block footer %}
-                                {% include "_footer.html" %}
-                {% endblock %}
-        </footer>
-        </div>
+	<footer class="row">
+		{% block footer %}
+				{% include "_footer.html" %}
+		{% endblock %}
+	</footer>
 {% endblock %}
 
 {% block extra_body_base %}
 
   {% block extra_body %}{% endblock %}
+
 {% endblock %}
+

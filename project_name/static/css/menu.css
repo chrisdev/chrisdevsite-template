@@ -19,8 +19,7 @@ a.flyout-toggle {
 
 .attached {
 	background-color: #646464;
-	border-color: #ff0000;
-	margin-bottom: 0;
+	border-color: #08C;
 }
 
 .attached li {
@@ -28,20 +27,10 @@ a.flyout-toggle {
 	font-weight: 500;
 }
 
-#abstract {
-	padding-bottom: 25px;
-	padding-left: 0px;
-	padding-right: 0;
-}
-
-#abstract .social li {
-	float: right;
-	padding-right: 10px;
-}
-
 .social li {
 	list-style: none;
-	padding-top: 8px;	
+	padding-top: 8px;
+	text-align: right;
 }
 
 .social li a:last-of-type {
@@ -55,14 +44,6 @@ a.flyout-toggle {
 .fc-webicon.medium {
 	height: 25px;
 	width: 25px;
-}
-
-.attached h6 {
-	color: #646464;
-}
-
-.attached p {
-	color: #000;
 }
 
 .attached ul.nav-bar {
@@ -85,7 +66,7 @@ a.flyout-toggle {
 	padding: 5px 10px 2px;
 	border: 0px;
 	box-shadow: none;
-	color: #006C99;
+	color: #08C;
 	font-size: 13px;
 }
 
@@ -100,7 +81,7 @@ a.flyout-toggle {
 
 #menu .nav-bar > li > a:hover {
 	background: #fff;
-	color: #ff3333;
+	color: #08C;
 	border-radius: 2px;
 }
 
@@ -122,23 +103,12 @@ a.flyout-toggle {
 	background: #000;
 }
 
-#menu li {
-	list-style: none;
-}
-
-#menu p a {
-	color: #006C99;
-}
-
-.menu-bar {
-	padding-top: 5px;
-}
 
 #menu .nav-bar {
 	margin: 0px;
 	float: right;
 	height: 29px;
-	background-color: #006C99;
+	background-color: #646464;
 	padding: 2px;
 	width: 940px;
 }
@@ -151,11 +121,11 @@ a.flyout-toggle {
 }
 
 #menu .nav-bar a h6, #menu .nav-bar a p {
-	color: #006C99;
+	color: #08C;
 }
 
 #menu .nav-bar a:hover h6 {
-	color: #006C99;
+	color: #08C;
 }
 
 /* Use this class if a link gets an icon when it shouldn't. */
