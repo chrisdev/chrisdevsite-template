@@ -1,7 +1,58 @@
-{% extends "theme_base.html" %}
+% load i18n %}
 
-{% block account_bar %}{% endblock %}
+{% block extra_head_base %}
+     <!-- place google site validation metatag here -->
+    <link rel="stylesheet" media="print" href="{{ STATIC_URL }}css/print.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/site_styles.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/frontendadmin.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/photoswipe.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/menu.css"/>
+    <!--[if IE 6]>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/ie6.css" />
+    <![endif]-->
+    {% block extra_head %}
+      <!-- place the typekit stuff here -->
 
-{% block footer %}
-    {% include "_footer.html" %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block extra_script %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/site_js.js"></script>
+{% endblock %}
+
+{% block topbar_base %}
+        {% include "_topbar.html" %}
+{% endblock %}
+
+{% block body_base %}
+                {% block body %}
+                        <div id="content" class="row">
+                                {% block content %}
+                                        <div class="hide-for-small twelve columns">{% block bread_crumbs %}{% endblock %}</div>
+
+                                        <div id="article" class="nine columns">{% block article %}{% endblock %}</div>
+
+                                        <div id="aside" class="three columns">{% block aside %}{% endblock %}</div>
+                                {% endblock %}
+                   </div>
+                {% endblock %}
+{% endblock %}
+
+{% block footer_base %}
+        <div id="footer">
+        <div class="hide-for-small sitemap row">
+                        {% include "_sitemap.html" %}
+        </div>
+        <footer class="row">
+                {% block footer %}
+                                {% include "_footer.html" %}
+                {% endblock %}
+        </footer>
+        </div>
+{% endblock %}
+
+{% block extra_body_base %}
+
+  {% block extra_body %}{% endblock %}
 {% endblock %}
