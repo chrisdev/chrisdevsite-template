@@ -134,12 +134,12 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    # theme
     'south',
     "pinax_theme_foundation",
     "django_extensions",
     "frontendadmin",
     "taggit",
+    "floppyforms",
     "contact_form",
     "django_generic_flatblocks",
     "django_generic_flatblocks.contrib.gblocks",
@@ -151,14 +151,14 @@ THIRD_PARTY_APPS = [
     "frontendadmin",
     'haystack',
     "markitup",
-    "photos",
-    "news",
-    "contact_us",
 
 ]
 
 LOCAL_APPS = [
     'utils',
+    "photos",
+    "news",
+    "contact_us",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

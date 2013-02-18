@@ -43,7 +43,7 @@
     {% endblock %}
 {% endblock %}
 
-{% block footer_base %}	
+{% block footer_base %}
 	<footer class="row">
 		{% block footer %}
 				{% include "_footer.html" %}
@@ -52,17 +52,8 @@
 {% endblock %}
 
 {% block extra_body_base %}
-    <script>
-    $('a.frontendadmin').click(function(event) {
-            event.preventDefault();
-            var $div = $('<div>').addClass('reveal-modal').appendTo('body');
-            $this = $(this);
-            $.get($this.attr('href'), function(data) {
-              return $div.empty().html(data).append('<a class="close-reveal-modal">&#215;</a>').reveal();
-            });
-    });
-    </script>
-    
+
   {% block extra_body %}{% endblock %}
 
 {% endblock %}
+

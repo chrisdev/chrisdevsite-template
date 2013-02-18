@@ -1,0 +1,21 @@
+{% extends "flatpages/default.html" %}
+
+{% block bread_crumbs %}
+	<div class="row">
+		<ul class="breadcrumbs">
+			<li><a href="/">Home</a></li>
+			<li><a href="/about_us/">About Us</a></li>
+		</ul>
+	</div>
+{% endblock %}
+
+{% block aside %}
+	<ul class="hide-for-small nav-bar vertical">
+	  <li><a href="/about_us/">OPM</a></li>
+	  <li><a href="/about_us/minister/">Minister of State in OPM</a></li>
+	  <li><a href="/about_us/permanent-secretary/">Permanent Secretary</a></li>
+	  <li><a href="/about_us/hiv-agency/">HIV/AIDS Agency</a></li>
+	  <li><a href="/about_us/hiv-secretariat/">HIV/AIDS Secretariat</a></li>
+	</ul>
+	{% include "_sidebar.html" %}
+{% endblock %}

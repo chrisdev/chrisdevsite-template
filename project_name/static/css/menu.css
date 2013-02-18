@@ -30,7 +30,7 @@ a.flyout-toggle {
 .social li {
 	list-style: none;
 	padding-top: 8px;
-	text-align: right;	
+	text-align: right;
 }
 
 .social li a:last-of-type {
@@ -102,6 +102,7 @@ a.flyout-toggle {
 	padding: 0px;
 	background: #000;
 }
+
 
 #menu .nav-bar {
 	margin: 0px;
