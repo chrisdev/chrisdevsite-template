@@ -167,6 +167,7 @@ FIXTURE_DIRS = [
     join(DJANGO_ROOT, "fixtures"),
 ]
 
+DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False,}
 
 ##### Markit up #########
 MARKITUP_SET = 'markitup/sets/markdown'

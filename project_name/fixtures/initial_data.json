@@ -6,5 +6,60 @@
             "domain": "example.com", 
             "name": "example.com"
         }
+    },
+    {
+        "pk": 2,
+        "model": "filer.folder",
+        "fields": {
+            "rght": 2,
+            "uploaded_at": "2013-02-18T12:27:31.053",
+            "name": "Gallery",
+            "parent": null,
+            "level": 0,
+            "created_at": "2013-02-18T12:27:31.053",
+            "modified_at": "2013-02-18T12:27:31.053",
+            "lft": 1,
+            "tree_id": 2,
+            "owner": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "filer.folder",
+        "fields": {
+            "rght": 2,
+            "uploaded_at": "2013-02-18T12:27:41.495",
+            "name": "PDF",
+            "parent": null,
+            "level": 0,
+            "created_at": "2013-02-18T12:27:41.495",
+            "modified_at": "2013-02-18T12:27:41.495",
+            "lft": 1,
+            "tree_id": 3,
+            "owner": 1
+        }
+    },
+    {
+        "pk": 1,
+        "model": "filer.folder",
+        "fields": {
+            "rght": 2,
+            "uploaded_at": "2013-02-18T09:26:44.069",
+            "name": "Slider",
+            "parent": null,
+            "level": 0,
+            "created_at": "2013-02-18T09:26:44.070",
+            "modified_at": "2013-02-18T09:26:44.070",
+            "lft": 1,
+            "tree_id": 1,
+            "owner": 1
+        }
+    },
+    {
+        "pk": 1,
+        "model": "filer.clipboard",
+        "fields": {
+            "user": 1
+        }
     }
 ]
