@@ -167,6 +167,7 @@ FIXTURE_DIRS = [
     join(DJANGO_ROOT, "fixtures"),
 ]
 
+DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False,}
 
 ##### Markit up #########
 MARKITUP_SET = 'markitup/sets/markdown'
@@ -182,7 +183,6 @@ HAYSTACK_SITECONF = '{{ project_name }}.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
 HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT,'whoosh_index')
-
 
 #####################################
 LOGGING = {

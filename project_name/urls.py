@@ -22,9 +22,4 @@ urlpatterns = patterns("",
     url(r'^news/', include('news.urls')), url(r'^frontendadmin/', include('frontendadmin.urls')),
     url(r'^markitup/', include('markitup.urls')),
     url(r'^faq/$', faq_list, {"template_name":"faq/faq_list.html"},name='faq'),
-)
-
-#if settings.SERVE_MEDIA:
-#    urlpatterns += patterns("",
-#        url(r"", include("staticfiles.urls")),
-#    )+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
