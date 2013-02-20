@@ -17,6 +17,7 @@ easy-thumbnails==1.1
 git+https://github.com/chrisdev/django-frontendadmin.git
 git+https://github.com/chrisdev/django-form-utils.git
 git+https://github.com/chrisdev/django-myfaq.git
+git+https://github.com/chrisdev/django-flatpages-x.git@filer
 #git+https://github.com/chrisdev/python-markdown-flex-video.git
 django-floppyforms==1.0
 akismet==0.2.0
@@ -27,7 +28,6 @@ django-admin-tools==0.4.1
 gunicorn==0.14.6
 fabric==1.4.1
 cuisine==0.5.1
-django-flatpages-x
 django-markitup==1.0.0
 django-contact-form==0.3.1
 django-crispy-forms==1.1.1
