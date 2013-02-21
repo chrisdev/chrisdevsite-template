@@ -14,7 +14,7 @@
     						{% get_photos Slider 12 as photos %}
     					    <div id="featured">
     					        {% for photo in photos %}
-    					            <img src="{% thumbnail photo 1200x450 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
+    					            <img src="{% thumbnail photo 1200x300 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
     					        {% endfor %}
     					        {% for photo in photos %}
     					        	<span class="orbit-caption" id="slide-{{ photo.pk }}">{{ photo.default_caption }}</span>
@@ -40,6 +40,21 @@
 		</div>
 		
 		<div class="three columns">
+			<div id="news-feed" class="row">
+				<div class="panel radius">
+					<h5>Latest News</h5>
+						<div id="gblock">
+							{% latest_news_articles 3 as latest_articles_list %}
+								{% for article in latest_articles_list %}
+							  	<h6><a href="{{ article.get_absolute_url }}">{{ article.title}}</a></h6>
+							    <p><strong>{{ article.published|date:"Y F d" }}</strong></p>
+								<p><a href="{{ article.get_absolute_url }}" class="readmore" style="float: right;">Read More &raquo;</a></p>
+						        <hr>
+						        {% endfor %}
+						</div>
+				</div>
+			</div>
+			
 			{% include "_sidebar.html" %}
 		</div>
 </div>
