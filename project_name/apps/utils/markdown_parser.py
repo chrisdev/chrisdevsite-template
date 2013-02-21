@@ -25,7 +25,7 @@ def parse(text):
 
 
     """
-    md = markdown.Markdown(['codehilite', 'flex_video', 'tables', ])
+    md = markdown.Markdown(['codehilite', 'tables', ])
 
     for iref in re.findall(img_ref_re, text):
         img_id = iref[7]
