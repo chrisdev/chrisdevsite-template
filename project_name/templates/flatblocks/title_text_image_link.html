@@ -2,17 +2,22 @@
 {% load markup %}
 
 {% if user.is_staff %}
-{% frontendadmin_change object %}
-{% frontendadmin_delete object %}
+	{% frontendadmin_change object %}
+	{% frontendadmin_delete object %}
 {% endif %}
+
 {% if object.title %}
-<h5>{{object.title}}</h5>
+	<h5>{{object.title}}</h5>
 {% endif %}
 
-  {% if object.text %}
-   {{object.text|markdown|safe}}
-  {% endif %}
+{% if object.image %}
+	<img src="{{ object.image.url }}" alt="{{object.title}}"/>
+{% endif %}
 
-  {% if object.url %}
-  <a href="{{object.url}}" class="readmore">Read More &raquo;</a>
-  {% endif %}
+{% if object.text %}
+	{{object.text|markdown|safe}}
+{% endif %}
+
+{% if object.url %}
+	<a href="{{object.url}}" class="readmore">Read More &raquo;</a>
+{% endif %}

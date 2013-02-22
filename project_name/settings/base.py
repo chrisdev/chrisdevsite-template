@@ -80,7 +80,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = "##!-@lj^&6m_)2v&730o!nks=94cp&m*^_$11kz@wcize24+*)"
 
