@@ -9,6 +9,7 @@ urlpatterns = patterns("",
             regex=r"^$",
             view=ArticleListView.as_view(),
             name="article_list"),
+
         url(regex=r"^article/(?P<year>\d{4})/(?P<month>[-\w]+)/(?P<day>\d+)/(?P<slug>[-\w]+)/$",
             view=ArticleDateDetailView.as_view(),
             name="article_date_detail"),

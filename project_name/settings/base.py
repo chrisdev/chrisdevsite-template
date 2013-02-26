@@ -70,6 +70,10 @@ STATIC_ROOT = join(DJANGO_ROOT, "site_media", "static")
 # Example: "http://media.lawrence.com"
 STATIC_URL = "/site_media/static/"
 
+##
+ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
+
+
 # Additional directories which hold static files
 STATICFILES_DIRS = [
     join(DJANGO_ROOT, "static"),
@@ -79,6 +83,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = "##!-@lj^&6m_)2v&730o!nks=94cp&m*^_$11kz@wcize24+*)"
@@ -117,6 +122,11 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 
 DJANGO_APPS = [
+    # admin tools must appear before admin
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -128,8 +138,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.flatpages",
     "django.contrib.markup",
-    "filer",
-    "easy_thumbnails",
+
 ]
 
 THIRD_PARTY_APPS = [
@@ -150,6 +159,9 @@ THIRD_PARTY_APPS = [
     "frontendadmin",
     'haystack',
     "markitup",
+    "filer",
+    "easy_thumbnails",
+    "model_utils",
 
 ]
 
@@ -166,7 +178,6 @@ FIXTURE_DIRS = [
     join(DJANGO_ROOT, "fixtures"),
 ]
 
-DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False,}
 
 ##### Markit up #########
 MARKITUP_SET = 'markitup/sets/markdown'

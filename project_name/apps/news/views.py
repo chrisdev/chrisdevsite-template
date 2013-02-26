@@ -23,9 +23,12 @@ class ArticleListView(ListView):
 
 class ArticleDateDetailView(DateDetailView):
 
-    queryset = Article.objects.published()
     date_field = "published"
     template = "news/article_detail.html"
+
+
+    def get_queryset(self):
+        return Article.objects.published()
 
     def get_context_data(self, **kwargs):
         # import ipdb; ipdb.set_trace()

@@ -1,66 +1,149 @@
+#-*- coding: utf-8 -*-
+from django.utils import unittest
+from django.contrib.auth.models import User
+from .models import Article, Section, Revision
+from django.contrib.webdesign.lorem_ipsum import paragraphs, words
+from django.core.urlresolvers import reverse
+from django.test.client import Client
+from django.utils.timezone import now
+from django.test import TestCase
+
+
+class BasicArticleTestCase(TestCase):
+    fixtures = ['test_fixtures.json',]
+
+    def setUp(self):
+        self.myuser = User.objects.create_user('jsmith',
+                                               'afunky@fresh.com',
+                                               'secret')
+
+        self.section1 = Section.objects.create(title='Section1')
+        self.section2 = Section.objects.create(title='Section2')
+        self.article1 = Article.objects.create(
+            title='This is Article 1',
+            author=self.myuser,
+            summary_html=words(7),
+            content_html=paragraphs(2),
+            section=self.section1
+        )
+
+        self.article1 = Article.objects.create(
+            title='This is Article 2',
+            author=self.myuser,
+            summary_html=words(5),
+            content_html=paragraphs(3),
+            section=self.section1
+        )
+
+        self.article3 = Article.objects.create(
+            title='This is Published',
+            author=self.myuser,
+            summary_html=words(5),
+            content_html=paragraphs(3),
+            section=self.section1,
+            published=now()
+        )
+
+    def tearDown(self):
+        User.objects.all().delete()
+        Article.objects.all().delete()
+        Section.objects.all().delete()
+
+    def test_article_index_unpublished(self):
+        # test with umpublihed
+        c = Client()
+        self.assertEqual(Article.objects.all().count(), 3)
+
+        self.assertEqual(Article.objects.published().count(), 1)
+
+        response = c.get(reverse('article_list'))
+
+        self.assertEqual(response.status_code, 200)
+
+        ctx_sections = response.context['section_list']
+        self.assertEqual(len(ctx_sections), 2)
+
+        self.assertEqual(response.content.find('Article 1'), -1)
+
+    def test_published_article_list(self):
+
+        c = Client()
+        self.assertEqual(Article.objects.all().count(), 3)
+
+        self.assertEqual(Article.objects.published().count(), 1)
+
+        response = c.get(reverse('article_list'))
+
+        self.assertEqual(response.status_code, 200)
+
+        self.assertNotEqual(response.content.find('This is Published'), -1)
+
+
+    def test_detail(self):
+        c = Client()
+        response = c.get(self.article1.get_absolute_url())
+        self.assertEqual(response.status_code, 404)
+        response = c.get(self.article3.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.content.find('This is Published'), -1)
+
+md_summary = """
+## This H2
+
+* This is a bullet
+* this is a nother one
+
+A paragraph, more paragrapn
 """
->>> from django.test import Client
->>> from news.models import Post, Category
->>> import datetime
->>> from django.core.urlresolvers import reverse
->>> client = Client()
 
->>> category = Category(title='Django', slug='django')
->>> category.save()
->>> category2 = Category(title='Rails', slug='rails')
->>> category2.save()
+md_content = """
+## This H2
 
->>> post = Post(title='DJ Ango', slug='dj-ango', body='Yo DJ! Turn that music up!', status=2, publish=datetime.datetime(2008,5,5,16,20))
->>> post.save()
+### H3
 
->>> post2 = Post(title='Where my grails at?', slug='where', body='I Can haz Holy plez?', status=2, publish=datetime.datetime(2008,4,2,11,11))
->>> post2.save()
+* This is a bullet
+* this is a nother one
 
->>> post.categories.add(category)
->>> post2.categories.add(category2)
+A paragraph, more paragraph
 
->>> response = client.get(reverse('blog_index'))
->>> response.context[-1]['object_list']
-[<Post: DJ Ango>, <Post: Where my grails at?>]
->>> response.status_code
-200
+Another paragraph
 
->>> response = client.get(reverse('blog_category_list'))
->>> response.context[-1]['object_list']
-[<Category: Django>, <Category: Rails>]
->>> response.status_code
-200
-
->>> response = client.get(category.get_absolute_url())
->>> response.context[-1]['object_list']
-[<Post: DJ Ango>]
->>> response.status_code
-200
-
->>> response = client.get(post.get_absolute_url())
->>> response.context[-1]['object']
-<Post: DJ Ango>
->>> response.status_code
-200
-
->>> response = client.get(reverse('blog_search'), {'q': 'DJ'})
->>> response.context[-1]['object_list']
-[<Post: DJ Ango>]
->>> response.status_code
-200
->>> response = client.get(reverse('blog_search'), {'q': 'Holy'})
->>> response.context[-1]['object_list']
-[<Post: Where my grails at?>]
->>> response.status_code
-200
->>> response = client.get(reverse('blog_search'), {'q': ''})
->>> response.context[-1]['message']
-'Search term was too vague. Please try again.'
-
->>> response = client.get(reverse('blog_detail', args=[2008, 'apr', 2, 'where']))
->>> response.context[-1]['object']
-<Post: Where my grails at?>
->>> response.status_code
-200
 """
+
+
+class AritcleAdminTestCase(TestCase):
+
+    def setUp(self):
+
+        self.myuser = User.objects.create_superuser(
+            'admin',
+            'admin@example.com',
+            'password')
+        self.client.login(username='admin', password='password')
+
+        self.section1 = Section.objects.create(title='Section1')
+        self.section2 = Section.objects.create(title='Section2')
+
+    def test_add_entry(self):
+
+        self.assertEquals(Article.objects.count(), 0)
+        article_data = {
+            'title': 'This is An Article',
+            'summary': md_summary,
+            'content': md_content,
+            'author': self.myuser.pk
+            'publish': True,
+        }
+
+
+        response = self.client.post(
+            '/admin/news/article/add/',
+            article_data,
+            follow=True
+        )
+
+
+
+
+
 

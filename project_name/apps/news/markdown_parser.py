@@ -15,20 +15,23 @@ def parse(text):
     Ok now the ids
     ![Alt text 2][1]
     """
-    md = markdown.Markdown(['codehilite', 'flex_video', 'tables'])
+    md = markdown.Markdown(['extra','codehilite'])
+
     for iref in re.findall(img_ref_re, text):
         img_id = iref[7]
+        alt_txt = iref[0]
         try:
-            image = ArticleImage.objects.get(pk=int(img_id))
-            md.references[img_id] = (image.image_path.url, '')
+            fp_img= File.objects.get(pk=img_id)
+            md.references[img_id] = (fp_img.url, alt_txt)
         except ObjectDoesNotExist:
-            pass
+           pass
 
     for lref in re.findall(reference_re, text):
-        doc_name = lref[7]
+        a_id = lref[7]
+        alt_txt = lref[0]
         try:
-            doc = File.objects.get(name=doc_name.lower())
-            md.references[doc_name] = (doc.url, doc.name)
+            fa = File.objects.get(pk=a_id)
+            md.references[a_id] = (fa.url, alt_txt)
         except ObjectDoesNotExist:
             pass
 
