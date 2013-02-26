@@ -10,11 +10,11 @@ from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
 from filer.fields.image import FilerImageField
 from filer.fields.file import FilerFileField
-from django.contrib.sites.models import Site
-from django.conf import settings
-
-from django.utils import simplejson as json
-
+from model_utils.models import TimeStampedModel
+from django.utils.timezone import now as now
+from model_utils.fields import AutoCreatedField, AutoLastModifiedField
+from django.template.defaultfilters import slugify
+from django.http import Http404
 
 class Section(models.Model):
     title = models.CharField(_('title'), max_length=100)
@@ -26,15 +26,22 @@ class Section(models.Model):
     def __unicode__(self):
         return u'%s' % self.title
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+                self.slug = slugify(self.title)
+        super(Section,self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse("section_detail", kwargs={"slug": self.slug})
+
+
 
 
 class Article(models.Model):
     """Article model."""
     title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(_('slug'), unique_for_date='published')
-    author = models.ForeignKey(User, blank=True, null=True)
+    author = models.ForeignKey(User, null=True)
 
     section = models.ForeignKey(Section, related_name="articles",
                                 blank=True, null=True)
@@ -42,18 +49,10 @@ class Article(models.Model):
     summary_html = models.TextField(editable=True)
     content_html = models.TextField(editable=True)
 
-    tweet_text = models.CharField(max_length=140, editable=False)
-    # when first revision was created
-    created = models.DateTimeField(default=datetime.now,
-                                   editable=False)
-    # when last revision was create (even if not published)
-    updated = models.DateTimeField(null=True, blank=True,
-                                   editable=False)
-    # when last published
     published = models.DateTimeField(null=True, blank=True,
                                      editable=False)
-
-    view_count = models.IntegerField(default=0, editable=False)
+    created  = AutoCreatedField()
+    modified = AutoLastModifiedField()
 
     tags = TaggableManager()
 
@@ -68,32 +67,39 @@ class Article(models.Model):
     def __unicode__(self):
         return self.title
 
-    def save(self, **kwargs):
-        self.updated_at = datetime.now()
-        super(Article, self).save(**kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Article,self).save(*args, **kwargs)
+
 
     def get_absolute_url(self):
-        # if self.published and datetime.now() >= self.published:
-        #     name = "article_date_detail"
-        #     kwargs = {
-        #         "year": self.published.strftime("%Y"),
-        #         "month": self.published.strftime("%b"),
-        #         "day": self.published.strftime("%d"),
-        #         "slug": self.slug,
-        #     }
-
-        name = "article_detail_pk"
-        kwargs = {"pk": self.pk}
-
+        #import ipdb; ipdb.set_trace()
+        if self.published is not None:
+            name = "article_date_detail"
+            kwargs = {
+                "year": self.published.strftime("%Y"),
+                "month": self.published.strftime("%b").lower(),
+                "day": self.published.strftime("%d"),
+                "slug": self.slug,
+            }
+        else:
+            name = "article_detail_pk"
+            kwargs = {"pk": self.pk}
 
         return reverse(name, kwargs=kwargs)
+
 
     def rev(self, rev_id):
         return self.revisions.get(pk=rev_id)
 
     def current(self):
         "the currently visible (latest published) revision"
-        return self.revisions.exclude(published=None).order_by("-published")[0]
+        try:
+            return self.revisions.exclude(
+            published=None).order_by("-published")[0]
+        except IndexError:
+            return
 
     def latest(self):
         "the latest modified (even if not published) revision"
@@ -112,29 +118,31 @@ class Revision(models.Model):
 
     content = models.TextField()
 
-    author = models.ForeignKey(User, related_name="post_revisions")
+    author = models.ForeignKey(User, related_name="article_revisions")
 
-    updated = models.DateTimeField(default=datetime.now)
+    updated = models.DateTimeField(default=datetime.now, editable=False)
     published = models.DateTimeField(null=True, blank=True)
-
-    view_count = models.IntegerField(default=0, editable=False)
 
     def __unicode__(self):
         return 'Revision %s for %s' % (self.updated.strftime('%Y%m%d-%H%M'),
                                        self.article.slug)
 
-    def inc_views(self):
-        self.view_count += 1
-        self.save()
 
 
 class ArticleAttachment(models.Model):
 
-    article = models.ForeignKey(Article, related_name="attachments",
-                                blank=True, null=True)
-    timestamp = models.DateTimeField(default=datetime.now, editable=False)
-    file_path = FilerFileField(null=True, blank=True)
+    article = models.ForeignKey(Article,
+                                related_name="attachments",
+                                blank=True,
+                                null=True)
 
+    attachment = FilerFileField(null=True, blank=True)
+
+    def __unicode__(self):
+
+        return "[%s] [%s]" % (self.attachment.label,
+            self.attachment.pk
+        )
 
 
     class Meta:
@@ -147,16 +155,17 @@ class ArticleImage(models.Model):
     article = models.ForeignKey(Article,
                                 related_name="images",
                                 blank=True, null=True)
-    timestamp = models.DateTimeField(default=datetime.now, editable=False)
 
-    image_path = FilerImageField(null=True, blank=True)
+    image = FilerImageField(null=True, blank=True)
 
 
     def __unicode__(self):
-        if self.pk is not None:
-            return "[ %d ]" % self.pk
-        else:
-            return "deleted image"
+        return "![%s][%s]" % (self.image.label,
+            self.image.pk
+        )
+
+
+
 
     class Meta:
         verbose_name = "Image"

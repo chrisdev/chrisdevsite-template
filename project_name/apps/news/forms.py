@@ -1,16 +1,12 @@
 from datetime import datetime
 from django import forms
 from django.conf import settings
-from django.utils.functional import curry
-from news.models import Article, Revision
-from news.utils import can_tweet, load_path_attr
+from .models import Article, Revision
+from .markdown_parser import parse
 try:
     from markitup.widgets import AdminMarkItUpWidget as content_widget
 except ImportError:
     content_widget = forms.Textarea
-
-PARSER = getattr(settings, "NEWS_MARKDOWN_PARSER",
-                           ["news.markdown_parser.parse", {}])
 
 
 class AdminArticleForm(forms.ModelForm):
@@ -68,11 +64,11 @@ class AdminArticleForm(forms.ModelForm):
                 if self.cleaned_data["publish"]:
                     article.published = datetime.now()
 
-        render_func = curry(load_path_attr(PARSER[0], **PARSER[1]))
 
-        article.summary_html = render_func(self.cleaned_data["summary"])
-        article.content_html = render_func(self.cleaned_data["content"])
-        article.updated = datetime.now()
+
+        article.summary_html = parse(self.cleaned_data["summary"])
+        article.content_html = parse(self.cleaned_data["content"])
+
         article.save()
 
         r = Revision()
@@ -81,7 +77,7 @@ class AdminArticleForm(forms.ModelForm):
         r.summary = self.cleaned_data["summary"]
         r.content = self.cleaned_data["content"]
         r.author = article.author
-        r.updated = article.updated
+        r.updated = article.modified
         r.published = article.published
         r.save()
 

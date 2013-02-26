@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from news.models import Post
+from .models import Articles
 
 
 class NewsSitemap(Sitemap):
@@ -7,7 +7,7 @@ class NewsSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Post.objects.published()
+        return Articles.objects.published()
 
         def lastmod(self, obj):
             return obj.publish

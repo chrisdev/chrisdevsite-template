@@ -11,12 +11,9 @@ class SectionAdmin(admin.ModelAdmin):
 
 class ArticleImageInline(admin.TabularInline):
     model = ArticleImage
-    fields = ["image_path"]
-
 
 class ArticleAttachmentInline(admin.TabularInline):
     model = ArticleAttachment
-    fields = ["file_path"]
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -31,7 +28,7 @@ class ArticleAdmin(admin.ModelAdmin):
         "section",
         "title",
         "slug",
-        "author",
+        'author',
         "summary",
         "content",
         "publish",
@@ -53,7 +50,7 @@ class ArticleAdmin(admin.ModelAdmin):
         if db_field.name == "author":
             ff = super(ArticleAdmin,
                        self).formfield_for_dbfield(db_field, **kwargs)
-            ff.initial = request.user.id
+            ff.initial = request.user.pk
             return ff
         return super(ArticleAdmin,
                      self).formfield_for_dbfield(db_field, **kwargs)
@@ -68,7 +65,13 @@ class ArticleAdmin(admin.ModelAdmin):
     def save_form(self, request, form, change):
         # this is done for explicitness that we want form.save to commit
         # form.save doesn't take a commit kwarg for this reason
+        print "save form"
         return form.save()
+
+    def save_model(self, request, obj, form, change):
+        print "admin save_model"
+        obj.author = request.user
+        obj.save()
 
 admin.site.register(Section, SectionAdmin)
 admin.site.register(Article, ArticleAdmin)
