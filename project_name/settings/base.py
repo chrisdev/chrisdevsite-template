@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
 ]
 
-ROOT_URLCONF = "test_project.urls"
+ROOT_URLCONF = "{{ project_name }}.urls"
 
 TEMPLATE_DIRS = [
     join(DJANGO_ROOT, "templates"),
@@ -188,7 +188,7 @@ MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
 ######## Haystack Search ############
 
 
-HAYSTACK_SITECONF = 'test_project.search_sites'
+HAYSTACK_SITECONF = '{{ project_name }}.search_sites'
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
