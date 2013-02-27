@@ -1,0 +1,11 @@
+{% extends "flatpages/default.html" %}
+
+{% block article %}
+	<div class="flatpage bio">
+		 <h4>{{flatpage.title}}</h4>
+			 {% for dd in flatpage.revisions.all|slice:"1" %}
+			 	<p class="date"><strong>Last Updated : {{ dd.updated|date:"d F Y" }}</strong></p>
+			 {% endfor %}
+	   {{flatpage.content|safe}}
+	</div>
+{% endblock %}

@@ -14,7 +14,7 @@
     						{% get_photos Slider 12 as photos %}
     					    <div id="featured">
     					        {% for photo in photos %}
-    					            <img src="{% thumbnail photo 1200x300 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
+    					            <img src="{% thumbnail photo 1200x400 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
     					        {% endfor %}
     					        {% for photo in photos %}
     					        	<span class="orbit-caption" id="slide-{{ photo.pk }}">{{ photo.default_caption }}</span>
@@ -28,12 +28,18 @@
 	    					{% gblock "welcome" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
 	    			</div>
 	    		</div>
+	    		
+	    		<div class="row">
+	    			<div class="bio twelve columns">
+	    					{% gblock "message" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+	    			</div>
+	    		</div>
 
        			<div class="row">
-    				<div class="six columns">
+    				<div class="bio six columns">
     						{% gblock "block1" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
     				</div>
-    				<div class="six columns">
+    				<div class="bio six columns">
     						{% gblock "block2" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
     				</div>
     			</div>
@@ -41,9 +47,8 @@
 		
 		<div class="three columns">
 			<div id="news-feed" class="row">
-				<div class="panel radius">
+				<div class="panel radius" style="margin-bottom: 0px;">
 					<h5>Latest News</h5>
-						<div id="gblock">
 							{% latest_news_articles 3 as latest_articles_list %}
 								{% for article in latest_articles_list %}
 							  	<h6><a href="{{ article.get_absolute_url }}">{{ article.title}}</a></h6>
@@ -51,7 +56,6 @@
 								<p><a href="{{ article.get_absolute_url }}" class="readmore" style="float: right;">Read More &raquo;</a></p>
 						        <hr>
 						        {% endfor %}
-						</div>
 				</div>
 			</div>
 			
