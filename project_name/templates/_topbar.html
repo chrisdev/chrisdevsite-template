@@ -1,9 +1,14 @@
 <div id="header" class="row hide-for-small">
-		<div id="logo" class="two columns">
+		{% block gov_itc_logo %}
+		    <a class="noicon" href="http://www.ttconnect.gov.tt/gortt/portal/ttconnect">
+		    	<img src="{{STATIC_URL}}images/gov_itc_header.png" alt="TTConnect" style="padding: 0 1px; margin-bottom: 8px;">
+		    </a>
+		{% endblock %}
+		<div id="logo" class="six columns">
 			<a href="/"><img src="{{STATIC_URL}}images/logo.png" title="Home" alt="Home"></a>
 		</div>
-		<div class="ten columns">
-				<div class="social four columns offset-by-eight">
+		<div class="six columns">
+				<div class="social six columns offset-by-six">
 				<li>
 				<a class="fc-webicon facebook medium" href="#" title="facebook" target="_blank">Facebook</a>
 				<a class="fc-webicon twitter medium" href="#" title="twitter" target="_blank">Twitter</a>
@@ -11,7 +16,6 @@
 				<a class="fc-webicon youtube medium" href="#" title="youtube" target="_blank">Youtube</a>
 				<a class="fc-webicon rss medium" href="/news/feeds/rss/" title="rss feed" target="_blank">RSS Feed</a>
 				</li>
-
 		 </div>
 
 		</div>

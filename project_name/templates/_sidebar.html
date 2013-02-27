@@ -1,7 +1,16 @@
 {% load news_tags %}
+{% load generic_flatblocks %}
 
 <div id="sidebar">
-	<div class="flex-video vimeo row" style="margin-bottom: 20px;">
-		<iframe src="http://player.vimeo.com/video/24456787?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	<hr>
+		
+	<div class="row panel radius">
+	{% gblock "notices" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
+	</div>
+	
+	<hr>
+	
+	<div class="links row panel radius">
+	{% gblock "quick_links" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
 	</div>
 </div>

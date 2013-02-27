@@ -178,6 +178,9 @@ FIXTURE_DIRS = [
     join(DJANGO_ROOT, "fixtures"),
 ]
 
+FLATPAGES_X_TEMPLATE_CHOICES=[ ('flatpages/default.html','Text Only',),
+							   ('flatpages/bio.html','Bio',),
+							  ]
 
 ##### Markit up #########
 MARKITUP_SET = 'markitup/sets/markdown'
