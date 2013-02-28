@@ -44,11 +44,16 @@
 {% endblock %}
 
 {% block footer_base %}
+	<div id="footer">
+	<div class="hide-for-small sitemap row">
+			{% include "_sitemap.html" %}
+	</div>
 	<footer class="row">
 		{% block footer %}
 				{% include "_footer.html" %}
 		{% endblock %}
 	</footer>
+	</div>
 {% endblock %}
 
 {% block extra_body_base %}
