@@ -1,5 +1,5 @@
 body {
-	background-color: #F2F2F2;
+	background-color: #F3F3F3;
 }
 
 #header {
@@ -8,8 +8,8 @@ body {
 
 #content {
 	padding: 10px 10px 25px;
-	border-left: 1px solid #646464;
-	border-right: 1px solid #646464;
+	border-left: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
 	background: #fff;
 }
 
@@ -66,6 +66,20 @@ footer.row hr {
 footer.row a {color: #fff;}
 
 footer.row a:hover {color: #fff; text-decoration: underline;}
+
+.sitemap.row {
+	padding: 5px 10px 20px;
+	background-color: #c0c0c0;
+}
+.sitemap li {margin-bottom: 8px; list-style: none; font-size: 13px; font-weight: 500;}
+.sitemap li a { color: #006C99;}
+.sitemap li a:hover { color: #006C99; text-decoration: underline;}
+.sitemap h4 {color: #fff;margin-top: 5px;margin-bottom: 0;}
+.sitemap h6 {color: #fff; margin-bottom: 8px;}
+.sitemap h6 a {color: #fff;}
+.sitemap a[href$=".pdf"]{
+	background-image: none;
+}
 
 /*---faq----*/
 
@@ -226,7 +240,8 @@ ul.gallery {margin-bottom: 0;}
 }
 
 #news_sidebar h5 {
-	margin-bottom: 5px;
+	margin-bottom: 5px
+	
 }
 
 #featured { background: url(../images/spinner.gif) center center no-repeat; height: 320px; }
