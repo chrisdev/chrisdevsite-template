@@ -8,44 +8,44 @@
 
 {% block content %}
 <div id="homepage">
-    	<div class="nine columns">
-    			<div class="row">
-    				<div id="slider" class="twelve columns hide-for-small">
-    						{% get_photos Slider 12 as photos %}
-    					    <div id="featured">
-    					        {% for photo in photos %}
-    					            <img src="{% thumbnail photo 1200x400 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
-    					        {% endfor %}
-    					        {% for photo in photos %}
-    					        	<span class="orbit-caption" id="slide-{{ photo.pk }}">{{ photo.default_caption }}</span>
-    					        {% endfor %}
-    					    </div>
-    			    </div>
-    			</div>
+    	<div class="large-9 columns">
+    			<div id="slider" class="row">
+    				<div class="orbit-container large-12 columns">
+    					{% get_photos Slider 12 as photos %}
+    					  <ul data-orbit="" class="orbit-slides-container">
+    					  	{% for photo in photos %}
+    					    <li>
+    					      <img src="{% thumbnail photo 1200x450 crop %}"  data-caption="#slide-{{ photo.pk }}" alt="{{ photo.default_caption }}">
+    					      <div class="orbit-caption"><span class="orbit-caption" id="slide-{{ photo.pk }}">{{ photo.default_caption }}</span></div>
+    					    </li>
+    					    {% endfor %}
+    					  </ul>
+    					</div>
+    			</div>	
 
     			<div class="row">
-	    			<div class="twelve columns">
+	    			<div class="large-12 columns">
 	    					{% gblock "welcome" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
 	    			</div>
 	    		</div>
 	    		
 	    		<div class="row">
-	    			<div class="bio twelve columns">
+	    			<div class="bio large-12 columns">
 	    					{% gblock "message" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
 	    			</div>
 	    		</div>
 
        			<div class="row">
-    				<div class="bio six columns">
+    				<div class="bio large-6 columns">
     						{% gblock "block1" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
     				</div>
-    				<div class="bio six columns">
+    				<div class="bio large-6 columns">
     						{% gblock "block2" for "utils.TitleTextImageAndURL" with "flatblocks/title_text_image_link.html" %}
     				</div>
     			</div>
 		</div>
 		
-		<div class="three columns">
+		<div class="large-3 columns">
 			<div id="news-feed" class="row">
 				<div class="panel radius" style="margin-bottom: 0px;">
 					<h5>Latest News</h5>
@@ -68,15 +68,29 @@
 {% endblock %}
 
 {% block extra_body %}
-<script type="text/javascript">
-$(window).load(function() {
-     $('#featured').orbit({
-          captions: true,
-          bullets : true,
-          directionalNav: false,
-          animation: 'fade',
-          advanceSpeed: 5000,
-     });
-});
-</script>
+	<script>
+	    $(document)
+		.foundation('orbit', {
+			  timer_speed: 10000,
+			  animation_speed: 500,
+			  bullets: true,
+			  stack_on_small: true,
+			  container_class: 'orbit-container',
+			  stack_on_small_class: 'orbit-stack-on-small',
+			  next_class: 'orbit-next',
+			  prev_class: 'orbit-prev',
+			  timer_container_class: 'orbit-timer',
+			  timer_paused_class: 'paused',
+			  timer_progress_class: 'orbit-progress',
+			  slides_container_class: 'orbit-slides-container',
+			  bullets_container_class: 'orbit-bullets',
+			  bullets_active_class: 'active',
+			  slide_number_class: 'orbit-slide-number',
+			  caption_class: 'false',
+			  active_slide_class: 'active',
+			  orbit_transition_class: 'orbit-transitioning'
+			}, function(response){
+				console.log(response.errors);
+		});
+	  </script>
 {% endblock %}

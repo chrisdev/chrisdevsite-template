@@ -1,5 +1,5 @@
 body {
-	background-color: #F3F3F3;
+	background: #f5f5f5 url('../images/husk.png') repeat;
 }
 
 #header {
@@ -11,6 +11,10 @@ body {
 	border-left: 1px solid #c0c0c0;
 	border-right: 1px solid #c0c0c0;
 	background: #fff;
+}
+
+p, li {
+	font-size: 14px;
 }
 
 a.readmore {
@@ -244,12 +248,14 @@ ul.gallery {margin-bottom: 0;}
 	
 }
 
-#featured { background: url(../images/spinner.gif) center center no-repeat; height: 320px; }
-#featured img { display: none;}
-#featured.orbit { background: none; }
-#featured.orbit img { display: block; }
-
+.orbit-container {background: none;}
+.orbit-container .orbit-prev, .orbit-container .orbit-next {background-color: transparent;}
+.orbit-container .orbit-slides-container > * .orbit-caption {left: 0;}
+.orbit-bullets {margin: 0 0 15px;top: 6px; float: right;}
+.orbit-bullets li {height: 12px;width: 12px;float: left;border-width: 1px;}
 .bio img {
 	float: left;
 	padding-right: 10px;
 }
+
+
