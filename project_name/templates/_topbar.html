@@ -1,14 +1,14 @@
 <div id="header" class="row hide-for-small">
 		{% block gov_itc_logo %}
 		    <a class="noicon" href="http://www.ttconnect.gov.tt/gortt/portal/ttconnect">
-		    	<img src="{{STATIC_URL}}images/gov_itc_header.png" alt="TTConnect" style="padding: 0 1px; margin-bottom: 8px;">
+		    	<img src="{{STATIC_URL}}images/gov_itc_header.png" alt="TTConnect" style="padding: 0 1px; margin-bottom: 0px;">
 		    </a>
 		{% endblock %}
-		<div id="logo" class="six columns">
+		<div id="logo" class="large-6 columns">
 			<a href="/"><img src="{{STATIC_URL}}images/logo.png" title="Home" alt="Home"></a>
 		</div>
-		<div class="six columns">
-				<div class="social six columns offset-by-six">
+		<div class="large-6 columns">
+				<div class="social large-6 columns large-offset-6">
 				<li>
 				<a class="fc-webicon facebook medium" href="#" title="facebook" target="_blank">Facebook</a>
 				<a class="fc-webicon twitter medium" href="#" title="twitter" target="_blank">Twitter</a>
@@ -20,24 +20,25 @@
 
 		</div>
 
-		<div id="menu" class="menu-bar twelve columns">
+		<div id="menu" class="menu-bar large-12 columns">
 			{% include "_navbar.html" %}
 		</div>
 
 	</div>
 
-	<div class="attached show-for-small">
-    	<div class="row">
-			<li class="name mobile-four">
-				<a href="/"><i class="general foundicon-home show-for-small"></i>{{SITE_NAME}}</a><a href="#"></a>
-			</li>
-			<ul class="nav-bar menu mobile-four">
-				{% block topbar %}
-					{% block nav %}
-						{% include "_navbar.html" %}
-					{% endblock %}
-					{% block account_bar %}{% endblock %}
-				{% endblock %}
-			</ul>
-		</div>
+	<div class="contain-to-grid sticky show-for-small" style="border-bottom: 3px solid #08C;">
+	    <nav class="top-bar">
+		      	<ul class="title-area">	
+		        	<li class="name mobile-four"><a href="/">{{SITE_NAME}}</a><a href="#"></a></li>
+		        	 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		        </ul>
+		        <section class="top-bar-section">
+		        	<ul class="right menu mobile-four">
+				          {% block topbar %}
+				          {% block nav %}{% endblock %}
+				          {% block account_bar %}{% endblock %}
+				          {% endblock %}
+		        	</ul>
+		        </section>
+	    </nav>
 	</div>

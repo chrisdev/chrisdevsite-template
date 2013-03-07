@@ -10,7 +10,7 @@
 
 	<div class="box_wrapper image-gallery">
 	    {% for gallery in object_list %}
-		<div class="three mobile-two columns" style="float: left;">
+		<div class="small-3 columns" style="float: left;">
 			{% for photo in gallery.all_files.all|slice:":1" %}
 				<div class="img-wrapper">
 				<a href="/photos/gallery/{{ gallery.pk}}" title="">

@@ -46,46 +46,23 @@ a.flyout-toggle {
 	width: 25px;
 }
 
-.attached ul.nav-bar {
+.attached ul.top-bar {
 	margin-bottom: 0;
 	margin-top: 0;
 }
 
-#menu .nav-bar > li.has-flyout > a:first-child {
+#menu .top-bar > li.has-flyout > a:first-child {
 	padding-right: 25px;
 	padding-left: 10px;
 }
 
-#menu .nav-bar > li.has-flyout > a:first-child:after {
+#menu .top-bar > li.has-flyout > a:first-child:after {
 	right: 12px;
 	top: 12px;
 	border-width: 3px;
 }
 
-#menu .nav-bar li ul li a {
-	padding: 5px 10px 2px;
-	border: 0px;
-	box-shadow: none;
-	color: #08C;
-	font-size: 13px;
-}
-
-#menu .nav-bar li ul li a:hover {
-	background: none;
-}
-
-#menu .nav-bar > li > a:first-child {
-	font-size: 13px;
-	font-weight: 500;
-}
-
-#menu .nav-bar > li > a:hover {
-	background: #fff;
-	color: #08C;
-	border-radius: 2px;
-}
-
-#menu .nav-bar > li.has-flyout > a.flyout-toggle {
+#menu .top-bar > li.has-flyout > a.flyout-toggle {
 	padding: 0;
 }
 
@@ -100,34 +77,47 @@ a.flyout-toggle {
 
 #menu {
 	padding: 0px;
-	background: #000;
 }
 
 
-#menu .nav-bar {
+#menu .top-bar {
 	margin: 0px;
 	float: right;
 	height: 29px;
 	background-color: #646464;
 	padding: 2px;
-	width: 940px;
+	width: 100%;
 }
 
-#menu .nav-bar li {
+#menu .top-bar li {
 	border: 0;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	line-height: 25px;
 	box-shadow: none;
+	font-size: 16px;
 }
 
-#menu .nav-bar a h6, #menu .nav-bar a p {
+#menu .top-bar a h6, #menu .top-bar a p {
 	color: #08C;
 }
 
-#menu .nav-bar a:hover h6 {
+#menu .top-bar a:hover h6 {
 	color: #08C;
 }
 
+#menu .top-bar-section li a:not(.button) {
+	line-height: 27px;
+	background: #646464;
+	padding: 0 26px;
+}
+
+#menu .top-bar-section ul.dropdown li a:not(.button){
+		padding: 1px 15px;
+	}
+
+#menu .top-bar-section ul {
+	background: none;
+}
 /* Use this class if a link gets an icon when it shouldn't. */
 body a.noicon {
   background:transparent none !important;

@@ -3,7 +3,7 @@ bpython==0.12
 django-braces==0.2.1
 django-model-utils==1.2.0
 South==0.7.6
-pinax-theme-foundation
+git+https://github.com/ilendl2/pinax-theme-foundation.git@foundation4
 psycopg2==2.4.6
 django-extensions==1.0.3
 python-dateutil==2.1
