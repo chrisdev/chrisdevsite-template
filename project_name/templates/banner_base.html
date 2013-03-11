@@ -53,7 +53,7 @@
 								{% for article in latest_articles_list %}
 							  	<h6><a href="{{ article.get_absolute_url }}">{{ article.title}}</a></h6>
 							    <p><strong>{{ article.published|date:"Y F d" }}</strong></p>
-								<p><a href="{{ article.get_absolute_url }}" class="readmore" style="float: right;">Read More &raquo;</a></p>
+								<p><a href="{{ article.get_absolute_url }}" class="button small radius" style="float: right;">Read More &raquo;</a></p>
 						        <hr>
 						        {% endfor %}
 				</div>
