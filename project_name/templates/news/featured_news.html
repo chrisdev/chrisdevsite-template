@@ -1,17 +1,13 @@
 <div class="large-3 columns featured-news">
 	<div class="panel">
-	{% block column-5 %}
 		<h3 style="margin-bottom: 8px;">News</h3>
-	{% get_latest_posts 3 as news_list %}
-    {% for story in news_list %}
-    <div class="headline-entry">
-            <h6>
-                  <a href="{{story.get_absolute_url}}">{{story.title|removetags:"p"|safe}}</a>
-            </h6>
-            <p><span class="white radius label">{{ story.publish|date:"F d, Y"}}</span></p>
-             <a href="{{ article.get_absolute_url }}" class="button small radius" style="float: right; margin-bottom: 10px;">Read More &raquo;</a>
-    </div>
-    {% endfor %}
-	{% endblock %}
+		{% get_latest_posts 3 as news_list %}
+	    	{% for story in news_list %}
+	   		<div class="headline-entry">
+	            <h6><a href="{{story.get_absolute_url}}">{{story.title|removetags:"p"|safe}}</a></h6>
+	            	<p><span class="white radius label">{{ story.publish|date:"F d, Y"}}</span></p>
+	           	    <a href="{{ article.get_absolute_url }}" class="button small radius">Read More &raquo;</a>
+	    	</div>
+	    {% endfor %}
 	</div>
 </div>
