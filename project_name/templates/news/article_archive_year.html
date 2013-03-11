@@ -2,32 +2,29 @@
 {% load news_tags %}
 {% load i18n %}
 
-
-{% block head_title %}
-All Articles for {{ year|date:"Y" }}
-{% endblock %}
+{% block head_title %}All Articles for {{ year|date:"Y" }}{% endblock %}
 
 {% block news_title %}All Articles for {{ year|date:"Y" }}{% endblock %}
-{% block news_content %}
-<ul>
-    {% for date in date_list %}
-        <li>{{ date|date }}</li>
-    {% endfor %}
-</ul>
 
-<div>
-    {% for obj in object_list %}
-        <p>
-            {{ obj.title }} - {{ obj.published|date:"F j, Y" }}
-        </p>
-    {% endfor %}
-</div>
+{% block news_content %}
+	<ul>
+	    {% for date in date_list %}
+	        <li>{{ date|date }}</li>
+	    {% endfor %}
+	</ul>
+
+	<div>
+    	{% for obj in object_list %}
+        	<p>{{ obj.title }} - {{ obj.published|date:"F j, Y" }}</p>
+    	{% endfor %}
+	</div>
 {% endblock %}
+
 {% block news_pagination %}
-{% if is_paginated %}
-    <div id="pages" class="page_without_others">
-        {% if has_previous %}<a href="?page={{previous}}" class="prev">Previous</a>{% else %}<a href="#" class="prev">&nbsp;</a>{% endif %}
-        {% if has_next %} <a href="?page={{next}}" class="next">Next</a>{% endif %}
-    </div>
-{% endif %}
+	{% if is_paginated %}
+	    <div id="pages" class="page_without_others">
+	        {% if has_previous %}<a href="?page={{previous}}" class="prev">Previous</a>{% else %}<a href="#" class="prev">&nbsp;</a>{% endif %}
+	        {% if has_next %} <a href="?page={{next}}" class="next">Next</a>{% endif %}
+	    </div>
+	{% endif %}
 {% endblock %}

@@ -9,21 +9,15 @@
 
 	{% for post in object_list  %}
 	  	<h4><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h4>
-	     <p><strong>{{ post.publish|date:"Y F d" }}</strong></p>
-		 {% for img in post.postimage_set.featured|slice:":1"  %}
-		    <div>
-		    <a href="{{post.get_absolute_url}}">
-		    <img class="five columns" src="{{ img.display.url }}" alt="{{img.title}}" style="float:left; margin: 0 10px 10px;">
-		    </a>
-		    </div>
-		 {% endfor %}
-
-		 {{post.tease|markdown|safe}}
-
-		   <a href="{{ article.get_absolute_url }}" class="readmore" style="margin-bottom: 10px;">Read More &raquo;</a>
+	    <p><strong>{{ post.publish|date:"Y F d" }}</strong></p>
+		
+		{{post.tease|markdown|safe}}
+		
+		<a href="{{ article.get_absolute_url }}" class="button small radius">Read More &raquo;</a>
 
 		<hr>
 	{% endfor %}
+	
 {% endblock %}
 
 {% block news_pagination %}
