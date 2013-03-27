@@ -23,10 +23,8 @@
 {% endblock %}
 
 {% block extra_script %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/site_js.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/klass.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/code.photoswipe-3.0.4.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/chrisdev.js"></script>
 {% endblock %}
 
 {% block body_base %}
@@ -59,6 +57,6 @@
 {% block extra_body_base %}
 
   {% block extra_body %}{% endblock %}
+  <script type="text/javascript" src="{{ STATIC_URL }}js/site_js.js"></script>
 
 {% endblock %}
-
