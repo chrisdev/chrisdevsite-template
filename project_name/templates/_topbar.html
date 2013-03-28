@@ -35,7 +35,7 @@
 		        <section class="top-bar-section">
 		        	<ul class="right menu mobile-four">
 				          {% block topbar %}
-				          {% block nav %}{% endblock %}
+				          {% block nav %}{% include "_navbar.html" %}{% endblock %}
 				          {% block account_bar %}{% endblock %}
 				          {% endblock %}
 		        	</ul>
