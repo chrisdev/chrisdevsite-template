@@ -254,4 +254,19 @@ ul.gallery {margin-bottom: 0;}
 	padding-right: 10px;
 }
 
+#gallery li {
+	list-style: none;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 15px;
+}
+#gallery {
+	padding: 1px 11px;
+}
+#gallery .th { border: 0;
+	border-radius: 8px;
+	padding: 5px;
+}
+#gallery .th img { border-radius: 5px;}
+
 
