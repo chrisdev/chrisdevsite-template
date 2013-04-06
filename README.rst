@@ -40,72 +40,7 @@ For example we can start the development server as follows ::
 
     django-admin.py runserver  --settings=[myproject].settings.local
 
-The `local` module is designed for local development::
-
-    """Development settings and globals."""
-
-
-    from os.path import join, normpath
-
-    from base import *
-
-
-    ########## DEBUG CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-    DEBUG = True
-
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-    TEMPLATE_DEBUG = DEBUG
-    ########## END DEBUG CONFIGURATION
-
-
-    ########## EMAIL CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    ########## END EMAIL CONFIGURATION
-
-
-    ########## DATABASE CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
-        }
-    }
-    ########## END DATABASE CONFIGURATION
-
-    ########## CACHE CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        }
-    }
-    ########## END CACHE CONFIGURATION
-
-    ########## TOOLBAR CONFIGURATION
-    # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
-    INSTALLED_APPS += (
-        'debug_toolbar',
-    )
-
-    # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
-    INTERNAL_IPS = ('127.0.0.1',)
-
-    # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
-    MIDDLEWARE_CLASSES += (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
-    ########## END TOOLBAR CONFIGURATION
-
-    import warnings
-    warnings.simplefilter('error', DeprecationWarning)
-
+The `local.py` module is designed for local development
 
 This turns on the DEBUG  settings, set the default database to sqlite3 (default.db)
 adds `debug_toolbar` to INSTALLED_APPS and adds the debug-toolbar middleware.
@@ -123,6 +58,36 @@ variable called DJANGO_SETTINGS_MODULE ::
     export DJANGO_SETTINGS_MODULE=[myproject].settings.dev_chris
     django-admin.py runserver
 
+Deployment, Settings and Secrets
+==================================
+You need to create a YAML file called `_default.cfg` in the project_root which contains information about
+your servers, prroduction or test server settings and seceret keys.  The file should never bee added to
+you source control repo and should be kept in a safe place. Here is the set up of a typical  
+`_default.cfg`  ::
+
+    ---
+    nginx_root:  /etc/nginx/sites-available
+    test_hosts:   ['svr1.chrisdev.com']
+    prod_hosts:   ['srv2.chrisdev.com']
+    sites:   /usr/local/sites
+    virtualenvs:   /home/django/virtualenvs/
+    nginx_root:   /etc/nginx//sites-available
+    gunicorn:  127.0.0.1:2013
+    user:   django_user
+    memcache: 127.0.0.1:11211
+    db_user: db_user
+    db_passwd: XXXXX
+    db_host: db_host
+    db_name_production: prod_site_db
+    db_name_test: test_site_db
+    email_from: webmaster@client.com
+    email_user: info@chrisdev.com
+    email_password: XXX
+    email_host: mymail.com
+    secret_key: django_seceret_key
+    testing_site_name: test_site.chrisdev.com
+    production_site_name: client.com
+    akismet_api_key: XXXXX
 
 
 Requirements
@@ -138,13 +103,6 @@ The new project template also utilises multiple requirements files::
 will install the django-debug-toolbar etc.::
 
     pip install -r requirements/local.txt
-
-
-
-
-
-
-
 
 
 
