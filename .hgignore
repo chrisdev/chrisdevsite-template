@@ -1,0 +1,12 @@
+syntax: glob
+*.pyc
+.DS_Store
+dist
+MANIFEST
+_build
+_static
+site_media
+whoosh_index/MAIN_WRITELOCK
+whoosh_index/MAIN_no19hexjlokr.seg
+whoosh_index/_MAIN_1.toc
+_deploy.cfg
