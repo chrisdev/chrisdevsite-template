@@ -19,26 +19,22 @@
 		 </div>
 
 		</div>
+</div>
 
-		<div id="menu" class="menu-bar large-12 columns">
-			{% include "_navbar.html" %}
-		</div>
+<div class="row" id="menu">
+			<nav class="top-bar">
+				<ul class="title-area">
+				    <li class="name">
+				      <h1><a href="/"><span class="show-for-small">{{SITE_NAME}}</span></a></h1>
+				    </li>
+				    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+				</ul>
 
-	</div>
-
-	<div class="contain-to-grid sticky show-for-small" style="border-bottom: 3px solid #08C;">
-	    <nav class="top-bar">
-		      	<ul class="title-area">	
-		        	<li class="name mobile-four"><a href="/">{{SITE_NAME}}</a><a href="#"></a></li>
-		        	 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-		        </ul>
-		        <section class="top-bar-section">
-		        	<ul class="right menu mobile-four">
-				          {% block topbar %}
-				          {% block nav %}{% include "_navbar.html" %}{% endblock %}
-				          {% block account_bar %}{% endblock %}
-				          {% endblock %}
-		        	</ul>
-		        </section>
-	    </nav>
-	</div>
+				<section class="top-bar-section">
+					<ul class="right menu">
+						{% include "_navbar.html" %}
+						{% block account_bar %}{% endblock %}
+					</ul>
+				</section>
+			</nav>
+</div>

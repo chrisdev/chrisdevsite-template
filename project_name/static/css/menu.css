@@ -13,19 +13,20 @@
 	margin: 0;
 }
 
+.top-bar-section ul:first-of-type {
+	background: none repeat scroll 0 0 transparent;
+}
+
+.top-bar-section ul.right li .dropdown {
+	background-color: rgba(0, 135, 204, 0.95);
+}
+
 #menu {
 	padding: 0px;
 }
 
-#menu .flyout {
-	top: 25px;
-	box-shadow: none;
-}
-
 #menu .top-bar {
 	margin: 0px;
-	float: right;
-	height: 27px;
 	background-color: #646464;
 	padding: 0 2px 2px;
 	width: 100%;
@@ -34,26 +35,29 @@
 #menu .top-bar li {
 	border: 0;
 	margin-bottom: 0px;
-	line-height: 25px;
 	box-shadow: none;
 	font-size: 16px;
 }
 
-#menu .top-bar-section ul {
-	background: none repeat scroll 0 0 transparent;
-}
-
 #menu .top-bar-section li a:not(.button) {
-	line-height: 27px;
 	background: none;
-	padding: 0 26px;
+	padding: 0 24px;
 }
 
-#menu .top-bar-section ul.dropdown li a:not(.button) {
-	line-height: 27px;
-	background: #646464;
-	padding: 0 26px;
-	padding: 1px 15px;
+#menu .top-bar-section .dropdown li a {
+	padding: 15px 8px;
+}
+
+.top-bar-section .has-dropdown > a:after {
+	border-color: rgba(255, 255, 255, 1) transparent transparent;
+}
+
+#menu .top-bar li:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.top-bar.expanded .title-area {
+	background: none repeat scroll 0 0 transparent;
 }
 
 .social li {
@@ -75,37 +79,5 @@
 	width: 25px;
 }
 
-/* Use this class if a link gets an icon when it shouldn't. */
-body a.noicon {
-  background:transparent none !important;
-  padding:0 !important;
-  margin:0 !important;
-}
 
-/* Make sure the icons are not cut */
-a[href^="http:"], a[href^="https:"],
-a[href^="http:"]:visited, a[href^="https:"]:visited,
-a[href^="mailto:"], a[href$=".pdf"], a[href$=".doc"], a[href$=".xls"],
-a[href$=".rss"], a[href$=".rdf"], a[href^="aim:"] {
-  padding:2px 22px 2px 0;
-  margin:-2px 0;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-/* External links */
-a[href^="http:"]          { background-image: url(../images/icons/external.png); }
-a[href^="https:"]         { background-image: url(../images/icons/lock.png); }
-a[href^="mailto:"]        { background-image: url(../images/icons/email.png); }
-a[href^="http:"]:visited  { background-image: url(../images/icons/visited.png); }
-
-/* Files */
-a[href$=".pdf"]   { background-image: url(../images/icons/pdf.png); }
-a[href$=".doc"]   { background-image: url(../images/icons/doc.png); }
-a[href$=".xls"]   { background-image: url(../images/icons/xls.png); }
-
-/* Misc */
-a[href$=".rss"],
-a[href$=".rdf"]   { background-image: url(../images/icons/feed.png); }
-a[href^="aim:"]   { background-image: url(../images/icons/im.png); }
 

@@ -8,7 +8,7 @@ psycopg2==2.4.6
 django-extensions==1.0.3
 python-dateutil==2.1
 django-filer==0.9.3
-PIL==1.1.7
+Pillow==2.0.0
 Markdown==2.1.1
 django-generic-flatblocks==0.9.1
 simplejson==2.3.2
@@ -26,8 +26,10 @@ Whoosh==2.4.1
 django-haystack==1.2.7
 django-admin-tools==0.4.1
 gunicorn==0.14.6
-fabric==1.4.1
-cuisine==0.5.1
+Fabric==1.6.0
+cuisine==0.5.5
 django-markitup==1.0.0
 django-contact-form==0.3.1
 django-crispy-forms==1.1.1
+python-memcached==1.48
+
