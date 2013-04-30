@@ -44,6 +44,10 @@ body {
     width: 100%;
 }
 
+textarea#id_body {
+	min-height: 130px;
+}
+
 .orbit-container {background: none; max-height: 320px;}
 .orbit-container .orbit-prev, .orbit-container .orbit-next {background-color: transparent;}
 .orbit-container .orbit-slides-container > * .orbit-caption {left: 0;}
