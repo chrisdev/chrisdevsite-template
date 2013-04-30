@@ -1,5 +1,5 @@
 {% extends "contact_us/root.html" %}
-{% load crispy_forms_tags %}
+{% load foundation_tags %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Contact Us" %}{% endblock %}
@@ -7,6 +7,33 @@
 {% block article_contact %}
 	    <h4>Contact Us</h4>
 	    <p>Use this contact form to drop a line if you have inquires.</p>
-	     
-	    {% crispy form form.helper %}      
+	     <form action={% url contact-us %} method="post">
+	       {% csrf_token %}
+	       	<fieldset>
+	       		<div class="row">
+	       			<div class="large-12 columns">
+	       				{% render_field form.name %}
+	       			</div>
+	       		</div>
+	       		<div class="row">
+	       			<div class="large-12 columns">
+	       				{% render_field form.email %}
+	       			</div>
+	       		</div>
+	       		<div class="row">
+	       			<div class="large-12 columns">
+	       				{% render_field form.message_subject %}
+	       			</div>
+	       		</div>
+	       		<div class="row" style="margin-top: 10px;">
+	       			<div class="large-12 columns">
+	       				{% render_field form.body %}
+	       			</div>
+	       		</div>
+	       		
+	       		<input type="submit" value="Send" class="button small radius" style="float: right;">
+	       	</fieldset>
+	       
+	     </form>
+	          
 {% endblock %}

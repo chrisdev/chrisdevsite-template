@@ -6,8 +6,8 @@
      <!-- place google site validation metatag here -->
     <link rel="stylesheet" media="print" href="{{ STATIC_URL }}css/print.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/site_styles.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation_apps.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/frontendadmin.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/photoswipe.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/menu.css"/>
     <!--[if IE 6]>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/ie6.css" />
@@ -24,7 +24,6 @@
 
 {% block extra_script %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/klass.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/code.photoswipe-3.0.4.min.js"></script>
 {% endblock %}
 
 {% block body_base %}
@@ -52,11 +51,12 @@
 		{% endblock %}
 	</footer>
 	</div>
-{% endblock %}
-
+{% endblock %}	  
+	  
 {% block extra_body_base %}
 
   {% block extra_body %}{% endblock %}
+ 
   <script type="text/javascript" src="{{ STATIC_URL }}js/site_js.js"></script>
 
 {% endblock %}

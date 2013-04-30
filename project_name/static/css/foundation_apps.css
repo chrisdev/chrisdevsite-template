@@ -1,0 +1,90 @@
+body {
+	padding-top: 0 !important;
+}
+
+.contain-to-grid {
+	border-bottom: 3px solid #08C;
+	background: none repeat scroll 0 0 #333333;
+}
+
+.top-bar {
+	background: none repeat scroll 0 0 transparent;
+	margin-bottom: 0;
+}
+
+.top-bar-section li a:not(.button) {
+	background: none repeat scroll 0 0 transparent;
+	padding-top: 0;
+}
+
+.top-bar-section ul:first-of-type {
+	background: none repeat scroll 0 0 transparent;
+}
+
+.top-bar-section ul.right li .dropdown {
+	background: #333;
+}
+
+.top-bar-section ul.right li .dropdown {
+	border-top: 0px solid #08C;
+}
+
+.section-container {
+	-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC;
+    border-image: none;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    display: block;
+    margin-bottom: 1.25em;
+    width: 100%;
+}
+
+textarea#id_body {
+	min-height: 130px;
+}
+
+.orbit-container {background: none; max-height: 320px;}
+.orbit-container .orbit-prev, .orbit-container .orbit-next {background-color: transparent;}
+.orbit-container .orbit-slides-container > * .orbit-caption {left: 0;}
+.orbit-bullets {margin: 0 0 15px;top: 6px; float: right;}
+.orbit-bullets li {height: 12px;width: 12px;float: left;border-width: 1px;}
+
+/* Use this class if a link gets an icon when it shouldn't. */
+body a.noicon {
+  background:transparent none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+/* Make sure the icons are not cut */
+a[href^="http:"], a[href^="https:"],
+a[href^="http:"]:visited, a[href^="https:"]:visited,
+a[href^="mailto:"], a[href$=".pdf"], a[href$=".doc"], a[href$=".xls"],
+a[href$=".rss"], a[href$=".rdf"], a[href^="aim:"] {
+  padding:2px 22px 2px 0;
+  margin:-2px 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* External links */
+a[href^="http:"]          { background-image: url(../images/icons/external.png); }
+a[href^="https:"]         { background-image: url(../images/icons/lock.png); }
+a[href^="mailto:"]        { background-image: url(../images/icons/email.png); }
+a[href^="http:"]:visited  { background-image: url(../images/icons/visited.png); }
+
+/* Files */
+a[href$=".pdf"]   { background-image: url(../images/icons/pdf.png); }
+a[href$=".doc"]   { background-image: url(../images/icons/doc.png); }
+a[href$=".xls"]   { background-image: url(../images/icons/xls.png); }
+
+/* Misc */
+a[href$=".rss"],
+a[href$=".rdf"]   { background-image: url(../images/icons/feed.png); }
+a[href^="aim:"]   { background-image: url(../images/icons/im.png); }
+

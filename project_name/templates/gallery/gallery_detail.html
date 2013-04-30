@@ -9,44 +9,14 @@
 <div class="row">
 <h3 style="text-align: center;">{{ object.name }}</h3>
 
-<div class="image-gallery box clearfix">
-
-	   {% for photo in object.all_files.all %}
-
-					<div class="small-3 columns" style="float:left; margin-bottom: 12px;">
-							<div class="img-wrapper">
-								<ul id="Gallery" class="gallery">
-						        <a href="{{ photo.url }}"><img src="{% thumbnail photo 300x250 crop %}" alt="{{ photo.default_caption }}" title="{{ photo.default_caption }}"/> 
-								</a>
-								</ul>
-						    </div>
-					{% comment %}
-						{% if photo.name %}
-				           <h6>{{ photo.name}}</h6>
-				        {% endif %}
-				    {% endcomment %}
-					</div>
+	<div id="gallery" class="image-gallery box clearfix">
+		<ul class="clearing-thumbs" data-clearing>
+		 {% for photo in object.all_files.all %}
+	    <li style="list-style: none;"><a class="th" href="{{ photo.url }}"><img src="{% thumbnail photo 177x180 crop %}" data-caption="{{ photo.default_caption }}"/> 
+		</a></li>
 		{% endfor %}
+		</ul>
 	</div>
 </div>
 
 {% endblock %}
-
-{% block extra_body %}
-	<script type="text/javascript">
-			(function(window, PhotoSwipe){
-				document.addEventListener('DOMContentLoaded', function(){
-					var
-						options = {},
-						instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-				}, false);
-			}(window, window.Code.PhotoSwipe));
-	</script>
-{% endblock %}
-
-
-
-
-
-
-

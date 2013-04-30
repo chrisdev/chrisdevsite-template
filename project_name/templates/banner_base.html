@@ -67,7 +67,7 @@
 
 {% endblock %}
 
-{% block extra_script %}
+{% block extra_body %}
 	<script>
 	    $(document)
 		.foundation('orbit', {
@@ -89,13 +89,10 @@
 			  caption_class: 'false',
 			  active_slide_class: 'active',
 			  orbit_transition_class: 'orbit-transitioning'
-			},'reveal', {
-			  };
-		})
-	  </script>	  
-{% endblock %}
-
-{% block extra_body %}
+			};
+		)
+	</script>
+	  
 	<div id="myModal" class="reveal-modal medium">
 	  <div id="modalContent"></div>
 	  <a class="close-reveal-modal">&#215;</a>
