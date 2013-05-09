@@ -4,9 +4,9 @@
 {% load generic_flatblocks %}
 {% load markup %}
 {% block extra_head %}
- <link rel="alternate" type="application/rss+xml" href="{% url news_feed %}" title="All Topics"/>
+ <link rel="alternate" type="application/rss+xml" href="{% url "news_feed" %}" title="All Topics"/>
 {% for section in section_list %}
-     <link rel="alternate" type="application/rss+xml" href="{% url news_section_feed section.slug %}" title="{{ section.slug }}" />
+     <link rel="alternate" type="application/rss+xml" href="{% url "news_section_feed" section.slug %}" title="{{ section.slug }}" />
 {% endfor %}
 {% endblock %}
 {% block head_title %}{% trans "News" %}{% endblock %}
