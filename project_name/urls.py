@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
-from faq.views import faq_list
+from faq.views import QuestionList
 from django.views.generic.base import TemplateView
 
 from django.contrib import admin
@@ -19,8 +19,9 @@ urlpatterns = patterns("",
     url(r"^admin/", include(admin.site.urls)),
     url(r'^admin_tools/', include('admin_tools.urls')),
     url(r"^contact_us/", include("contact_us.urls")),
-    url(r'^photos/', include('photos.urls')),
-    url(r'^news/', include('news.urls')), url(r'^frontendadmin/', include('frontendadmin.urls')),
+    #url(r'^photos/', include('photos.urls')),
+    url(r'^news/', include('news.urls')), 
+    url(r'^frontendadmin/', include('frontendadmin.urls')),
     url(r'^markitup/', include('markitup.urls')),
-    url(r'^faq/$', faq_list, {"template_name":"faq/faq_list.html"},name='faq'),
+    url(r'^faq/$', include('faq.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
