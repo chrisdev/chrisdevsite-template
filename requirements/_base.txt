@@ -3,7 +3,6 @@ Django==1.5.1
 git+https://github.com/ilendl2/pinax-theme-foundation.git@foundation4
 git+https://github.com/chrisdev/django-frontendadmin.git
 git+https://github.com/chrisdev/django-form-utils.git
-git+https://github.com/chrisdev/django-myfaq.git
 git+https://github.com/chrisdev/django-flatpages-x.git@filer
 
 django-admin-tools==0.5.1

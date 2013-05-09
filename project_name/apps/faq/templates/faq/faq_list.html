@@ -1,0 +1,43 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load generic_flatblocks %}
+{% load markup %}
+
+{% block head_title %}{% trans "Frequently Asked Questions" %}{% endblock %}
+
+{% block body_id %}thefaq{% endblock %}
+
+{% block article %}
+<div class="row">
+   <div id="faq">
+       {% if object_list %}
+	 <h3>Questions</h3>
+	 <ol>
+	   {% for question in object_list %}
+	    <li>
+		     <a  href="#{{ question.slug }}">{{ question.text|markdown|safe }}</a>
+		 </li>
+	   {% endfor %}
+	 </ol>
+
+	<h3>Answers</h3>
+	<dl>
+	{% for question in object_list %}
+		<dt id="{{ question.slug }}">
+	         {{ question.text|markdown|safe }}
+	    </dt>
+	    <dd> {{ question.answer|markdown|safe }}</dd>
+	  {% endfor %}
+	</dl>
+	<p class="totop"><a href="#faq">back to top</a></p>
+	{% else %}
+	    <h3> No question available </h3>
+	{% endif %}
+	</div>
+</div>
+
+{% endblock %}
+
+{% block aside %}
+	 {% include "_sidebar.html" %}
+{% endblock %}
