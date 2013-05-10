@@ -11,7 +11,7 @@
 <div class="row">
    <div id="faq">
        {% if object_list %}
-	 <h3>Questions</h3>
+	 <h5>Questions</h5>
 	 <ol>
 	   {% for question in object_list %}
 	    <li>
@@ -20,7 +20,7 @@
 	   {% endfor %}
 	 </ol>
 
-	<h3>Answers</h3>
+	<h5>Answers</h5>
 	<dl>
 	{% for question in object_list %}
 		<dt id="{{ question.slug }}">
