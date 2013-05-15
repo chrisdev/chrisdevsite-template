@@ -1,8 +1,20 @@
 # -*- coding: utf-8 -*-
 # Django settings for zero project.
 
+import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_variable(var_name):
+    """ Get the environment variable or return exception """
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the %s environment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
+        
 
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
 path.append(DJANGO_ROOT)
