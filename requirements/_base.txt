@@ -4,6 +4,7 @@ git+https://github.com/ilendl2/pinax-theme-foundation.git@foundation4
 git+https://github.com/chrisdev/django-frontendadmin.git
 git+https://github.com/chrisdev/django-form-utils.git
 git+https://github.com/chrisdev/django-flatpages-x.git@filer
+git+https://github.com/chrisdev/python-markdown-flex-video.git
 
 django-admin-tools==0.5.1
 django-braces==1.0.0

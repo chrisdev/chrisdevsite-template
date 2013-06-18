@@ -25,9 +25,13 @@ CACHES = {
 }
 
 CACHE_MIDDLEWARE_SECONDS=60*5
-CACHE_MIDDLEWARE_KEY_PREFIX = "cuba_site"
 
-ALLOWED_HOSTS = ['cuba_site.chrisdev.com']
+CACHE_MIDDLEWARE_KEY_PREFIX = "{{ project_name }}"
+INSTALLED_APPS += [
+    'gunicorn',
+]
+
+ALLOWED_HOSTS = [get_env_variable("SITE_NAME"),]
 
 ADMINS = [
      ("Chris Clarke", "cclarke@chrisdev.com"),
